@@ -19,6 +19,7 @@ dynamics\cite{Atz2021}. Geometric Deep Learning comprises a set of methods, whic
 with a geometric prior through the structuring of data in i.e graphs, which is comprised of nodes and edges
 between nodes\cite{Atz2021}. Examples of encoded information could be distances, angles or directions between nodes,
 as well as symmetry properties namely equivariance or invariance.\\
+%#TODO Skriv lidt mere om graf neurale netværk specifikt, og hvilke andre modeller som beskæftiger sig med geometric deep learning
 
 Since significant risk is embodied in the task of predicting chemical and biochemical dynamics, due to end-uses often being
 utilized in pharmaceutical products, proper mechanisms for estimating the the uncertainty around prediction methods, and
@@ -28,6 +29,7 @@ calibration for more robust overall performance hard\cite{Song2019}\cite{Busk202
 Providing methods for estimating uncertainty, and calibrating, would allow for defaulting to more traditional methods
 for estimating chemical properties, when uncertainty is high in the data-driven models\cite{Busk2021}. \\
 
+
 In support of producing such methods, uncertainty, can effectively be distinguished between two concepts,
 namely epistemic- and aleatoric- uncertainty\cite{Busk2021}\cite{AleatoricAndEpistemic}. Aleatoric, also known as statistical
 uncertainty, refers to the uncertainty inherent in experimental outcomes, due to random effects. This class of uncertainty is
@@ -36,6 +38,7 @@ of uncertainty\cite{AleatoricAndEpistemic}. Epistemic, also called systemic unce
 produced by lack of information, and can therefore be reduced. These two elements of uncertainty are considered by researchers
 to be the sole components of total uncertainty, their sum being equal to total uncertainty in an
 experiment\cite{AleatoricAndEpistemic}.\\
+%#TODO Skriv noget mere om hvad andre gør, hvilke andre metoder er der som beskæftiger sig med usikkerhed
 
 This paper is concerned with the task of molecular estimation of a single property, namely the binding energy in a catalyst process
 between a transition metal, and a ligand\cite{Meyer2018}. The objective is to compare two ensembles of machine learning models
@@ -45,6 +48,7 @@ will be to assess the influence of this hyperparameter on modelling performance 
 ensembles. This modelling performance will be measured in both a traditional metrics namely the Mean Squared Error between the
 regression metric and the target, but also the uncertainty in the ensembles, produced by changing the hyperparameters to
 a different value. \\
+%#TODO Definer ensembler tidligere end det her ala: 
 
 Specifically, this paper will utilize a Message Passing Neural Network (MPNN) architecture inspired by the
 PAINN architecture\cite{PAINN}, to ingest graph representations of molecules, with Cartesian coordinates, atom-types and lengths
@@ -54,12 +58,17 @@ and one with lower.
 The MPNN models will provide individual estimates of the target value in the test-set, where the mean and variance of the ensembles
 will be the bedrock for ensemble predictions and uncertainty estimations, inspired by\cite{Lakshminarayanan2016}, and \cite{Tran2019}.\\
 
+%#TODO beskriv målsætning: implementer fra bunden, hvordan state repræsentatio osv, implementere ensemble mhp at estimere usikkerhed, se obsidian for mere
+
 Specifically, this paper asks:
 
 \begin{center}
   \textbf{\textit{Does the size of internal state representations, impact prediction error and uncertainty in ensembles of
       Message Passing Neural Networks}}
 \end{center}
+
+%#TODO beskriv hvorfor jeg har scopet projektet lige præcis som jeg har, hvorfor denne model, dette datasæt, hvorfor kun en bestemt type usikkerhed
+%#TODO underbyg argumenter med enten at det er eksperimentelt vist, eller at det er SOTA
 
 The following sections of this paper, namely[\ref{sec:intro},\ref{sec:definitions},\ref{sec:theory}],
 we will go through relevant concepts and theories, necessary for assessing the results and methods in this paper.

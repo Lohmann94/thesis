@@ -45,6 +45,9 @@ as shown below for any rotation matrix $R \in \mathbb{R}^{3 \times 3}$:
     R \vec{\mathbf{f}}(\vec{\mathbf{x}}) = \mathbf{\mathbf{f}}(R \vec{\mathbf{x}})
 \end{equation}
 
+%#TODO fremhæv hvilke operationer som er invariante og equivariante, og hvorfor det er okay at nogen af operationerne ikke er equivariante
+%#TODO kom med en liste over ækvivariante operationer lidt ala som de har i PAINN
+
 Equivariant representations of directions between nodes, have shown to be more expressive, at a similar computational cost.
 This effectively means a higher level of information can be maintained through the modelling phase, if the equivariance is
 maintained. This information is centered around directional information, which might be useful for predicting the chemical
@@ -56,6 +59,8 @@ $r_{cut}$, and produces expansions following the formula below.
 \begin{equation}\label{eq:rbf}
     \mathbf{RBF}(d) = \sum_{c \in C}\sin \left( \frac{c \pi}{r_{cut}} * d  \right) / d
 \end{equation}
+%#TODO Der skal ikke summes her, men laves 20 individuelle punkter for hver retning
+%#TODO Hvad kig kildekoden til PAINN igennem for at se om RBF kommer før f_cut
 
 The expansions provides a representation of similarity or dissimilarity, between the input relative position $\vec{r}_{ij}$,
 and the chosen points $C$ \cite{rbf}. This information is further expanded by a neural network layer with a set of weights
@@ -116,17 +121,34 @@ similarly to if it was a uniformly weighted mixture model as in \cite{Busk2021}.
 
 To estimate the uncertainty in the ensemble predictions, we can calculate the variance of the individual model
 predictions\cite{Tran2019}:
+%#TODO giv en matematisk definition på en bin, måske baseret på kvantiler
 
 \begin{equation}\label{eq:variance-ensemble}
     \text{Var}(\hat{\mathbf{y}}_i) = \frac{1}{T} \sum_{k=1}^T (\mathbf{y}_i^{(k)} - \hat{\mathbf{y}}_i)^2 = \hat{\sigma^{2}_{i}}
 \end{equation}
 
-Finally as the foundation of estimating uncertainty in the ensemble predictions, we can estimate the calibration error, via the
-following equation\cite{Busk2021}:
+%#TODO lav alt over her til et særskilt underafsnit, og alt under her som et andet afsnit
+
+Finally as the foundation of estimating uncertainty in the ensemble predictions, we can estimate the expected normal calibration error.
+This method relies on sorting predictions of targets, in $K$ equal sized bins, computing the predicted root mean variance\ref{eq:rmv}.
+
+\begin{equation}\label{eq:rmv}
+    RMV_{k} = ?
+\end{equation}
+%#TODO brug ligning 10 til at producere: kvadratroden af den gennemsnitlige varians indenfor en given bin.
+
+Thereafter producing the empirical root mean squared error\ref{eq:rmse}:
+
+\begin{equation}\label{eq:rmse}
+    RMSE_{k} = \sqrt{\frac{1}{k} \sum_{k=1}^K \left( \mathbf{y}_i^{(k)} - \hat{\mathbf{y}}_i \right)^2}
+\end{equation}
+
+and finally utilizing the expression, following equation the equation in\cite{Busk2021}:
 
 \begin{equation}\label{eq:calibration-error}
     ENCE = \frac{1}{k} \sum_{k=1}^K \frac{|RMV_{k} - RMSE_{k}|}{RMV_{k}}
 \end{equation}
+%#TODO Sum skal gå over 'i', hvor 'i' er alle værdier i en given bin
 
 The approach of \cite{Busk2021} is based on models in an ensemble, outputting both a mean value and a variance metric, effectively
 predicting both the target, and predicting its own uncertainty. This is not the case in this project, since the model solely predicts

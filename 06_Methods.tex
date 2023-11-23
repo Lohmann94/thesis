@@ -60,6 +60,7 @@ of the edges, being an input variable in the message block.
 
 
 \subsection{Model}\label{subsec:model}
+%#TODO Flyt hele dette afsnit ned til theory section
 
 The model architecture consists of two main components, namely the Message block, and the Update block as formerly introduced in the
 the theory section \ref{eq:message_block}, and \ref{eq:update_block}.  The Message block is conceptually responsible
@@ -97,14 +98,23 @@ on both the scalar- \ref{eq:residual_scalar_update} and the vector- \ref{eq:resi
 a figure representing the update block\ref{img:update_block}.
 
 \begin{equation}\label{eq:residual_scalar_update}
-    \Delta \mathbf{s}_{i}^{u}= \mathbf{a}_{ss} \left ( \mathbf{s}_{i}, \left | \mathbf{V\vec{v}_{i}} \right | \right ) + \mathbf{a}_{sv} \left ( \mathbf{s}_{i}, \left | \mathbf{V\vec{v}_{i}} \right | \right ) \left \langle \mathbf{U\vec{v}_{i}}, \mathbf{V \vec{v}_{i}} \right \rangle
+    \Delta \mathbf{s}_{i}^{u}= \mathbf{a}_{ss} \left ( \mathbf{s}_{i}, \left \| \mathbf{V}\vec{\mathbf{v}}_{i} \right \| \right ) + \mathbf{a}_{sv} \left ( \mathbf{s}_{i}, \left \| \mathbf{V}\vec{\mathbf{v}}_{i} \right \| \right ) \left \langle \mathbf{U} \vec{\mathbf{v}}_{i}, \mathbf{V} \vec{\mathbf{v}}_{i} \right \rangle
 \end{equation}
 
 \begin{equation}\label{eq:residual_vector_update}
-    \Delta \mathbf{v}_{i}^{u}= \mathbf{a}_{vv} \left ( \mathbf{s}_{i}, \left | \mathbf{V\vec{v}_{i}} \right | \right ) \mathbf{U\vec{v}_{i}}
+    \Delta \mathbf{v}_{i}^{u}= \mathbf{a}_{vv} \left ( \mathbf{s}_{i}, \left \| \mathbf{V}\vec{\mathbf{v}}_{i} \right \| \right ) \mathbf{U}\vec{\mathbf{v}}_{i}
 \end{equation}
 
+\begin{figure}[H]
+    \caption{Update block}
+    \centering\label{img:update_block}
+    \includegraphics[width=250pt]{Images/Method/message_block.png}
+\end{figure}
 
+Worth noting about the above figure \ref{img:update_block}, is that the indexes of the scalar and vector representations, 
+have been altered, compared to \cite{PAINN}. This comes down to the project evaluating the indexing of the scalar and vector
+representations, in the paper, were faulty, and did not represent the PAINN architecture as described in prior sections of the
+paper.
 
 The blocks are stacked in coupled sequences of five full rounds, like the illustration below highlights\ref{img:MPNN_arc}, a corresponsding model can be found
 in \cite{PAINN}. The illustration shows an architecture comprised of three sets of message- and update-blocks, the implementation in this project utilized
@@ -196,6 +206,7 @@ is initialized to a random embedding on atom level, for each node in the graph.
 \end{algorithm}
 
 \subsection{Modelling Hyperparameters}\label{subsec:mod-hyper}
+%#TODO husk at beskrive at ensemblet er trænet på et fælles datasæt
 
 Generally, two subsets of hyperparameters exists, those relevant to the less sophisticated set of ensemble models (titled MPNN64), and those
 relevant to the more sophisticated ensemble models (titled MPNN128). The table below\ref{tab:hyperparameters},
@@ -223,7 +234,7 @@ as highlighting the parameters, which are consistent with the PAINN architecture
         \multicolumn{1}{|l|}{\textbf{State dimension size}}                  & \multicolumn{1}{c|}{64}                       & \multicolumn{1}{c|}{128}                       & Dimensions             \\ \hline
     \end{tabular}
 \end{table}
-%#TODO Indsæt link til appendix som forklarer de forskellige hyperparametre
+%#TODO Indsæt link til appendix som forklarer de forskellige hyperparametre, og lav appendix med retfærdiggørelse for hvorfor og hvordan parametre er valgt
 
 An explanation of the individual hyperparameters influence on the model, and a justification for selection of the above values, can be
 be found in the appendix section\ref{subsec:appendixA}.
