@@ -1,0 +1,227 @@
+@article{Behler2011,
+  abstract  = {Neural networks offer an unbiased and numerically very accurate approach to represent high-dimensional ab initio potential-energy surfaces. Once constructed, neural network potentials can provide the energies and forces many orders of magnitude faster than electronic structure calculations, and thus enable molecular dynamics simulations of large systems. However, Cartesian coordinates are not a good choice to represent the atomic positions, and a transformation to symmetry functions is required. Using simple benchmark systems, the properties of several types of symmetry functions suitable for the construction of high-dimensional neural network potential-energy surfaces are discussed in detail. The symmetry functions are general and can be applied to all types of systems such as molecules, crystalline and amorphous solids, and liquids. © 2011 American Institute of Physics.},
+  author    = {Jörg Behler},
+  doi       = {10.1063/1.3553717/954787},
+  issn      = {00219606},
+  issue     = {7},
+  journal   = {Journal of Chemical Physics},
+  month     = {2},
+  pages     = {74106},
+  publisher = {AIP Publishing},
+  title     = {Atom-centered symmetry functions for constructing high-dimensional neural network potentials},
+  volume    = {134},
+  url       = {/aip/jcp/article/134/7/074106/954787/Atom-centered-symmetry-functions-for-constructing},
+  year      = {2011}
+}
+
+
+@article{Gasteiger2020,
+  abstract  = {Graph neural networks have recently achieved great successes in predicting quantum mechanical properties of molecules. These models represent a molecule as a graph using only the distance between atoms (nodes). They do not, however, consider the spatial direction from one atom to another, despite directional information playing a central role in empirical potentials for molecules, e.g. in angular potentials. To alleviate this limitation we propose directional message passing, in which we embed the messages passed between atoms instead of the atoms themselves. Each message is associated with a direction in coordinate space. These directional message embeddings are rotationally equivariant since the associated directions rotate with the molecule. We propose a message passing scheme analogous to belief propagation, which uses the directional information by transforming messages based on the angle between them. Additionally, we use spherical Bessel functions and spherical harmonics to construct theoretically well-founded, orthogonal representations that achieve better performance than the currently prevalent Gaussian radial basis representations while using fewer than 1/4 of the parameters. We leverage these innovations to construct the directional message passing neural network (DimeNet). DimeNet outperforms previous GNNs on average by 76% on MD17 and by 31% on QM9. Our implementation is available online.},
+  author    = {Johannes Gasteiger and Janek Groß and Stephan Günnemann},
+  journal   = {8th International Conference on Learning Representations, ICLR 2020},
+  month     = {3},
+  publisher = {International Conference on Learning Representations, ICLR},
+  title     = {Directional Message Passing for Molecular Graphs},
+  url       = {https://arxiv.org/abs/2003.03123v2},
+  year      = {2020}
+}
+
+
+@article{Lakshminarayanan2016,
+  abstract  = {Deep neural networks (NNs) are powerful black box predictors that have recently achieved impressive performance on a wide spectrum of tasks. Quantifying predictive uncertainty in NNs is a challenging and yet unsolved problem. Bayesian NNs, which learn a distribution over weights, are currently the state-of-the-art for estimating predictive uncertainty; however these require significant modifications to the training procedure and are computationally expensive compared to standard (non-Bayesian) NNs. We propose an alternative to Bayesian NNs that is simple to implement, readily parallelizable, requires very little hyperparameter tuning, and yields high quality predictive uncertainty estimates. Through a series of experiments on classification and regression benchmarks, we demonstrate that our method produces well-calibrated uncertainty estimates which are as good or better than approximate Bayesian NNs. To assess robustness to dataset shift, we evaluate the predictive uncertainty on test examples from known and unknown distributions, and show that our method is able to express higher uncertainty on out-of-distribution examples. We demonstrate the scalability of our method by evaluating predictive uncertainty estimates on ImageNet.},
+  author    = {Balaji Lakshminarayanan and Alexander Pritzel and Charles Blundell},
+  issn      = {10495258},
+  journal   = {Advances in Neural Information Processing Systems},
+  month     = {12},
+  pages     = {6403-6414},
+  publisher = {Neural information processing systems foundation},
+  title     = {Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles},
+  volume    = {2017-December},
+  url       = {https://arxiv.org/abs/1612.01474v3},
+  year      = {2016}
+}
+
+
+@article{Wen2020,
+  abstract  = {Ensembles, where multiple neural networks are trained individually and their predictions are averaged, have been shown to be widely successful for improving both the accuracy and predictive uncertainty of single neural networks. However, an ensemble's cost for both training and testing increases linearly with the number of networks, which quickly becomes untenable. In this paper, we propose BatchEnsemble, an ensemble method whose computational and memory costs are significantly lower than typical ensembles. BatchEnsemble achieves this by defining each weight matrix to be the Hadamard product of a shared weight among all ensemble members and a rank-one matrix per member. Unlike ensembles, BatchEnsemble is not only parallelizable across devices, where one device trains one member, but also parallelizable within a device, where multiple ensemble members are updated simultaneously for a given mini-batch. Across CIFAR-10, CIFAR-100, WMT14 EN-DE/EN-FR translation, and out-of-distribution tasks, BatchEnsemble yields competitive accuracy and uncertainties as typical ensembles; the speedup at test time is 3X and memory reduction is 3X at an ensemble of size 4. We also apply BatchEnsemble to lifelong learning, where on Split-CIFAR-100, BatchEnsemble yields comparable performance to progressive neural networks while having a much lower computational and memory costs. We further show that BatchEnsemble can easily scale up to lifelong learning on Split-ImageNet which involves 100 sequential learning tasks.},
+  author    = {Yeming Wen and Dustin Tran and Jimmy Ba},
+  journal   = {8th International Conference on Learning Representations, ICLR 2020},
+  month     = {2},
+  publisher = {International Conference on Learning Representations, ICLR},
+  title     = {BatchEnsemble: An Alternative Approach to Efficient Ensemble and Lifelong Learning},
+  url       = {https://arxiv.org/abs/2002.06715v2},
+  year      = {2020}
+}
+
+
+@article{ZheLiu2022,
+  abstract = {Accurate uncertainty quantification is a major challenge in deep learning, as neural networks can make overconfident errors and assign high confidence predictions to out-of-distribution (OOD) inputs. The most popular approaches to estimate predictive uncertainty in deep learning are methods that combine predictions from multiple neural networks, such as Bayesian neural networks (BNNs) and deep ensembles. However their practicality in real-time, industrial-scale applications are limited due to the high memory and computational cost. Furthermore, ensembles and BNNs do not necessarily fix all the issues with the underlying member networks. In this work, we study principled approaches to improve uncertainty property of a single network, based on a single, deterministic representation. By formalizing the uncertainty quantification as a minimax learning problem, we first identify distance awareness, i.e., the model's ability to quantify the distance of a testing example from the training data, as a necessary condition for a DNN to achieve high-quality (i.e., minimax optimal) uncertainty estimation. We then propose Spectral-normalized Neural Gaussian Process (SNGP), a simple method that improves the distance-awareness ability of modern DNNs with two simple changes: (1) applying spectral normalization to hidden weights to enforce bi-Lipschitz smoothness in representations and (2) replacing the last output layer with a Gaussian process layer. On a suite of vision and language understanding benchmarks, SNGP outperforms other single-model approaches in prediction, calibration and out-of-domain detection. Furthermore, SNGP provides complementary benefits to popular techniques such as deep ensembles and data augmentation, making it a simple and scalable building block for probabilistic deep learning. Code is open-sourced at https://github.com/google/uncertainty-baselines},
+  author   = {Jeremiah Zhe Liu and Shreyas Padhy and Jie Ren and Zi Lin and Yeming Wen and Ghassen Jerfel and Zachary Nado and Jasper Snoek and Dustin Tran and Balaji Lakshminarayanan and Jeremiah Liu and Zack Nado},
+  journal  = {Journal of Machine Learning Research},
+  keywords = {Calibration,Deterministic uncertainty quantification,Out-of-distribution detection * Equal contribution †,Probabilistic neural networks,Single model uncertainty},
+  month    = {5},
+  pages    = {1-63},
+  title    = {A Simple Approach to Improve Single-Model Deep Uncertainty via Distance-Awareness},
+  volume   = {23},
+  url      = {https://arxiv.org/abs/2205.00403v2},
+  year     = {2022}
+}
+
+
+@article{ClassifierCalibration,
+  abstract  = {This paper provides both an introduction to and a detailed overview of the principles and practice of classifier calibration. A well-calibrated classifier correctly quantifies the level of uncertainty or confidence associated with its instance-wise predictions. This is essential for critical applications, optimal decision making, cost-sensitive classification, and for some types of context change. Calibration research has a rich history which predates the birth of machine learning as an academic field by decades. However, a recent increase in the interest on calibration has led to new methods and the extension from binary to the multiclass setting. The space of options and issues to consider is large, and navigating it requires the right set of concepts and tools. We provide both introductory material and up-to-date technical details of the main concepts and methods, including proper scoring rules and other evaluation metrics, visualisation approaches, a comprehensive account of post-hoc calibration methods for binary and multiclass classification, and several advanced topics.},
+  author    = {Telmo Silva Filho and Hao Song and Miquel Perello-Nieto and Raul Santos-Rodriguez and Meelis Kull and Peter Flach},
+  doi       = {10.1007/S10994-023-06336-7},
+  issn      = {15730565},
+  issue     = {9},
+  journal   = {Machine Learning},
+  keywords  = {Calibration,Classification,Confidence,Evaluation,Multiclass,Uncertainty},
+  month     = {9},
+  pages     = {3211-3260},
+  publisher = {Springer},
+  title     = {Classifier calibration: a survey on how to assess and improve predicted class probabilities},
+  volume    = {112},
+  year      = {2023}
+}
+
+
+@article{Busk2021,
+  abstract  = {Data-driven methods based on machine learning have the potential to accelerate computational analysis of atomic structures. In this context, reliable uncertainty estimates are important for assessing confidence in predictions and enabling decision making. However, machine learning models can produce badly calibrated uncertainty estimates and it is therefore crucial to detect and handle uncertainty carefully. In this work we extend a message passing neural network designed specifically for predicting properties of molecules and materials with a calibrated probabilistic predictive distribution. The method presented in this paper differs from previous work by considering both aleatoric and epistemic uncertainty in a unified framework, and by recalibrating the predictive distribution on unseen data. Through computer experiments, we show that our approach results in accurate models for predicting molecular formation energies with well calibrated uncertainty in and out of the training data distribution on two public molecular benchmark datasets, QM9 and PC9. The proposed method provides a general framework for training and evaluating neural network ensemble models that are able to produce accurate predictions of properties of molecules with well calibrated uncertainty estimates.},
+  author    = {Jonas Busk and Peter Bjørn Jørgensen and Arghya Bhowmik and Mikkel N. Schmidt and Ole Winther and Tejs Vegge},
+  doi       = {10.1088/2632-2153/ac3eb3},
+  issn      = {26322153},
+  issue     = {1},
+  journal   = {Machine Learning: Science and Technology},
+  keywords  = {Ensemble model,Graph neural network,Machine learning potential,Message passing neural network,Molecular property prediction,Uncertainty calibration,Uncertainty quantification},
+  month     = {7},
+  publisher = {IOP Publishing Ltd},
+  title     = {Calibrated Uncertainty for Molecular Property Prediction using Ensembles of Message Passing Neural Networks},
+  volume    = {3},
+  url       = {https://arxiv.org/abs/2107.06068v2},
+  year      = {2021}
+}
+
+
+@article{AleatoricAndEpistemic,
+  abstract  = {The notion of uncertainty is of major importance in machine learning and constitutes a key element of machine learning methodology. In line with the statistical tradition, uncertainty has long been perceived as almost synonymous with standard probability and probabilistic predictions. Yet, due to the steadily increasing relevance of machine learning for practical applications and related issues such as safety requirements, new problems and challenges have recently been identified by machine learning scholars, and these problems may call for new methodological developments. In particular, this includes the importance of distinguishing between (at least) two different types of uncertainty, often referred to as aleatoric and epistemic. In this paper, we provide an introduction to the topic of uncertainty in machine learning as well as an overview of attempts so far at handling uncertainty in general and formalizing this distinction in particular.},
+  author    = {Eyke Hüllermeier and Willem Waegeman},
+  doi       = {10.1007/S10994-021-05946-3},
+  issn      = {15730565},
+  issue     = {3},
+  journal   = {Machine Learning},
+  keywords  = {Bayesian inference,Calibration,Conformal prediction,Credal sets and classifiers,Deep neural networks,Ensembles,Epistemic uncertainty,Gaussian processes,Generative models,Likelihood-based methods,Probability,Set-valued prediction,Uncertainty,Version space learning},
+  month     = {3},
+  pages     = {457-506},
+  publisher = {Springer},
+  title     = {Aleatoric and epistemic uncertainty in machine learning: an introduction to concepts and methods},
+  volume    = {110},
+  year      = {2021}
+}
+
+
+@article{Atz2021,
+  abstract  = {Geometric deep learning (GDL) is based on neural network architectures that incorporate and process symmetry information. GDL bears promise for molecular modelling applications that rely on molecular representations with different symmetry properties and levels of abstraction. This Review provides a structured and harmonized overview of molecular GDL, highlighting its applications in drug discovery, chemical synthesis prediction and quantum chemistry. It contains an introduction to the principles of GDL, as well as relevant molecular representations, such as molecular graphs, grids, surfaces and strings, and their respective properties. The current challenges for GDL in the molecular sciences are discussed, and a forecast of future opportunities is attempted.},
+  author    = {Kenneth Atz and Francesca Grisoni and Gisbert Schneider},
+  doi       = {10.1038/S42256-021-00418-8},
+  issn      = {25225839},
+  issue     = {12},
+  journal   = {Nature Machine Intelligence},
+  month     = {12},
+  pages     = {1023-1032},
+  publisher = {Nature Research},
+  title     = {Geometric deep learning on molecular representations},
+  volume    = {3},
+  year      = {2021}
+}
+
+
+@article{PAINN,
+  abstract  = {Message passing neural networks have become a method of choice for learning on graphs, in particular the prediction of chemical properties and the acceleration of molecular dynamics studies. While they readily scale to large training data sets, previous approaches have proven to be less data efficient than kernel methods. We identify limitations of invariant representations as a major reason and extend the message passing formulation to rotationally equivariant representations. On this basis, we propose the polarizable atom interaction neural network (PaiNN) and improve on common molecule benchmarks over previous networks, while reducing model size and inference time. We leverage the equivariant atomwise representations obtained by PaiNN for the prediction of tensorial properties. Finally, we apply this to the simulation of molecular spectra, achieving speedups of 4-5 orders of magnitude compared to the electronic structure reference.},
+  author    = {Kristof T. Schütt and Oliver T. Unke and Michael Gastegger},
+  isbn      = {9781713845065},
+  issn      = {26403498},
+  journal   = {Proceedings of Machine Learning Research},
+  month     = {2},
+  pages     = {9377-9388},
+  publisher = {ML Research Press},
+  title     = {Equivariant message passing for the prediction of tensorial properties and molecular spectra},
+  volume    = {139},
+  url       = {https://arxiv.org/abs/2102.03150v4},
+  year      = {2021}
+}
+
+
+@article{Meyer2018,
+  abstract  = {The application of modern machine learning to challenges in atomistic simulation is gaining attraction. We present new machine learning models that can predict the energy of the oxidative addition process between a transition metal complex and a substrate for C-C cross-coupling reactions. In turn, this quantity can be used as a descriptor to estimate the activity of homogeneous catalysts using molecular volcano plots. The versatility of this approach is illustrated for vast libraries of organometallic catalysts based on Pt, Pd, Ni, Cu, Ag, and Au combined with 91 ligands. Out-of-sample machine learning predictions were made on a total of 18 062 compounds leading to 557 catalyst candidates falling into the ideal thermodynamic window. This number was further refined by searching for candidates with an estimated price lower than 10 US$ per mmol. The 37 catalyst finalists are dominated by palladium phosphine ligand combinations but also include the earth abundant transition metal (Cu) with less common ligands. Our results indicate that modern statistical learning techniques can be applied to the computational discovery of readily available and promising catalyst candidates.},
+  author    = {Benjamin Meyer and Boodsarin Sawatlon and Stefan Heinen and O. Anatole Von Lilienfeld and Clémence Corminboeuf},
+  doi       = {10.1039/C8SC01949E},
+  issn      = {20416539},
+  issue     = {35},
+  journal   = {Chemical Science},
+  pages     = {7069-7077},
+  publisher = {Royal Society of Chemistry},
+  title     = {Machine learning meets volcano plots: Computational discovery of cross-coupling catalysts},
+  volume    = {9},
+  year      = {2018}
+}
+
+@article{Torres2012,
+  abstract  = {B3LYP is the most widely used density-functional theory (DFT) approach because it is capable of accurately predicting molecular structures and other properties. However, B3LYP is not able to reliably model systems in which noncovalent interactions are important. Here we present a method that corrects this deficiency in B3LYP by using dispersion-correcting potentials (DCPs). DCPs are utilized by simple modifications to input files and can be used in any computational package that can read effective-core potentials. Therefore, the technique requires no programming. DCPs (developed for H, C, N, and O) produce the best results when used in conjunction with 6-31+G(2d,2p) basis sets. The B3LYP-DCP approach was tested on the S66, S22, and HSG-A benchmark sets of noncovalently interacting dimers and trimers and was found to, on average, significantly outperform almost all other DFT-based methods that were designed to treat van der Waals interactions. Users of B3LYP who wish to model systems in which noncovalent interactions (viz., steric repulsion, hydrogen bonding, π-stacking) are present, should consider B3LYP-DCP. © Published 2012 by the American Chemical Society.},
+  author    = {Edmanuel Torres and Gino A. Dilabio},
+  doi       = {10.1021/JZ300554Y/SUPPL_FILE/JZ300554Y_SI_001.PDF},
+  issn      = {19487185},
+  issue     = {13},
+  journal   = {Journal of Physical Chemistry Letters},
+  keywords  = {B3LYP,B3LYP-DCP,accurate noncovalent binding energies,dispersion-corrected density-functional theory,dispersion-correcting potentials},
+  month     = {7},
+  pages     = {1738-1744},
+  publisher = {American Chemical Society},
+  title     = {A (nearly) universally applicable method for modeling noncovalent interactions using B3LYP},
+  volume    = {3},
+  url       = {https://pubs.acs.org/doi/abs/10.1021/jz300554y},
+  year      = {2012}
+}
+
+@article{Song2019,
+  abstract  = {We are concerned with obtaining well-calibrated output distributions from regression models. Such distributions allow us to quantify the uncertainty that the model has regarding the predicted target value. We introduce the novel concept of distribution calibration, and demonstrate its advantages over the existing definition of quantile calibration. We further propose a post-hoc approach to improving the predictions from previously trained regression models, using multi-output Gaussian Processes with a novel Beta link function. The proposed method is experimentally verified on a set of common regression models and shows improvements for both distribution-level and quantile-level calibration.},
+  author    = {Hao Song and Tom Diethe and Meelis Kull and Peter Flach},
+  isbn      = {9781510886988},
+  journal   = {36th International Conference on Machine Learning, ICML 2019},
+  month     = {5},
+  pages     = {10347-10356},
+  publisher = {International Machine Learning Society (IMLS)},
+  title     = {Distribution Calibration for Regression},
+  volume    = {2019-June},
+  url       = {https://arxiv.org/abs/1905.06023v1},
+  year      = {2019}
+}
+
+@article{hpc,
+  title = {Using GPUs under LSF10},
+  url   = {https://www.hpc.dtu.dk/?page_id=2759}
+}
+
+@article{Tran2019,
+  abstract  = {Data science and informatics tools have been proliferating recently within the computational materials science and catalysis fields. This proliferation has spurned the creation of various frameworks for automated materials screening, discovery, and design. Underpinning these frameworks are surrogate models with uncertainty estimates on their predictions. These uncertainty estimates are instrumental for determining which materials to screen next, but the computational catalysis field does not yet have a standard procedure for judging the quality of such uncertainty estimates. Here we present a suite of figures and performance metrics derived from the machine learning community that can be used to judge the quality of such uncertainty estimates. This suite probes the accuracy, calibration, and sharpness of a model quantitatively. We then show a case study where we judge various methods for predicting density-functional-theory-calculated adsorption energies. Of the methods studied here, we find that the best performer is a model where a convolutional neural network is used to supply features to a Gaussian process regressor, which then makes predictions of adsorption energies along with corresponding uncertainty estimates.},
+  author    = {Kevin Tran and Willie Neiswanger and Junwoong Yoon and Qingyang Zhang and Eric Xing and Zachary W. Ulissi},
+  doi       = {10.1088/2632-2153/ab7e1a},
+  issn      = {26322153},
+  issue     = {2},
+  journal   = {Machine Learning: Science and Technology},
+  keywords  = {Density functional theory,Neural networks,Uncertainty},
+  month     = {12},
+  publisher = {IOP Publishing Ltd},
+  title     = {Methods for comparing uncertainty quantifications for material property predictions},
+  volume    = {1},
+  url       = {https://arxiv.org/abs/1912.10066v2},
+  year      = {2019}
+}
+
+@article{rbf,
+  abstract = {The Radial basis function kernel, also called the RBF kernel, or Gaussian kernel, is a kernel that is in the form of a radial basis function (more specifically, a Gaussian function). The RBF kernel is defined as K RBF (x, x) = exp −γ x − x 2 where γ is a parameter that sets the "spread" of the kernel. The RBF kernel as a projection into infinite dimensions Recall a kernel is any function of the form: K(x, x) = ψ(x), ψ(x) where ψ is a function that projections vectors x into a new vector space. The kernel function computes the inner-product between two projected vectors. As we prove below, the ψ function for an RBF kernel projects vectors into an infinite dimensional space. For Euclidean vectors, this space is an infinite dimensional Euclidean space. That is, we prove that ψ RBF : R n → R ∞ Proof: 1},
+  title    = {The Radial Basis Function Kernel}
+}
+
+
+
+

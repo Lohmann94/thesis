@@ -1,0 +1,136 @@
+\section{Theory}\label{sec:theory}
+
+In this section, we will discuss the theoretical foundations of message passing neural networks (MPNNs) and ensembles for predicting
+the binding energy of molecules in a catalyst process.
+
+\subsection{Message Passing Neural Networks}\label{subsec:modelling_task}
+
+The key idea behind MPNNs is the concept of
+message passing, where each node in the graph exchanges information with its neighbors in an iterative manner.
+
+Let $G = (N, E)$ be a graph, where $N$ is the set of nodes and $E$ is the set of edges.
+Each node $n \in N$ is associated with an invariant representation vector $\mathbf{S}_{n} \in \mathbb{R}^{Fx1}$,
+an equivariant representation
+vector $\vec{\mathbf{v}}_{n} \in \mathbb{R}^{Fx3}$ and a position in 3D space $\vec{r}_{i} \in \mathbb{R}^3$.
+$F$ denotes the number of features in the state representation.
+Each edge $(i, j) \in E$ is associated with a relative position $\vec{r}_{ij} = \vec{r}_{i} - \vec{r}_{j}$.
+A node $n_{j} \in N$ is said to be a neighbour of a node $n_{i} \in N \setminus \{n_{j}\} = \mathcal{N}(i) $
+if $n_{j}$ is within the cutoff distance of $n_{i}$: $\mathcal{N}(i) = \{j |\lVert \vec{r}_{ij} \rVert \leq r_{cut}  \}$.
+
+
+The message passing process in an MPNN can be described by the following equations \ref{eq:message_block} and \ref{eq:update_block}
+following the notation of \cite{PAINN}.
+
+\begin{equation}\label{eq:message_block}
+    \vec{\mathbf{m}}_{i}^{v,t+1} = \sum_{j \in \mathcal{N}(i)} \vec{M_t}(\mathbf{S}_{i}^{t}, \mathbf{S}_{j}^{t}, \vec{\mathbf{v}}_{i}^{t}, \vec{\mathbf{v}}_{j}^{t}, \vec{r}_{ij})
+\end{equation}
+
+\begin{equation}\label{eq:update_block}
+    \vec{\mathbf{s}}_{i}^{v,t+1} = \vec{U_t}(\mathbf{S}_{i}^{t}, \vec{\mathbf{v}}_{i}^{t}, \vec{\mathbf{m}}_{i}^{v,t+1})
+\end{equation}
+
+The $U$ and $M$ functions respectively being the update, and message functions, taking into account scalar, vector and
+position features. These equations utilize both invariant and equivariant representations, doing operations and letting
+representations interact, in accordance with knowledhe surrounding the chemical descriptor trying to be predicted. The underlying
+operations of the functions $U$ and $M$, have a linearity constraint on equivariant representations, in order to maintain
+information, throughout the modelling process\cite{Atz2021}. These operations need to be chosen, such that they fullfill either
+of the two equations (\ref{eq:invariant} for invariant representations or \ref{eq:equivariant} for equivariant representations)
+as shown below for any rotation matrix $R \in \mathbb{R}^{3 \times 3}$:
+
+\begin{equation}\label{eq:invariant}
+    \mathbf{f}(\vec{\mathbf{x}}) = \mathbf{f}(R \vec{\mathbf{x}})
+\end{equation}
+
+\begin{equation}\label{eq:equivariant}
+    R \vec{\mathbf{f}}(\vec{\mathbf{x}}) = \mathbf{\mathbf{f}}(R \vec{\mathbf{x}})
+\end{equation}
+
+Equivariant representations of directions between nodes, have shown to be more expressive, at a similar computational cost.
+This effectively means a higher level of information can be maintained through the modelling phase, if the equivariance is
+maintained. This information is centered around directional information, which might be useful for predicting the chemical
+descriptor in question. Directional information is also expanded from the relative positions between edges $\vec{r}_{ij}$,
+via the radial basis function (RBF)\cite{Atz2021}.The radial basis function outputs are chosen such that it is centered around twenty
+points, $ C = \{1, 2, 3, \ldots, 20\}$. The function takes directional information $d = \lVert \vec{r}_{ij} \rVert$ and a cutoff
+$r_{cut}$, and produces expansions following the formula below.
+
+\begin{equation}\label{eq:rbf}
+    \mathbf{RBF}(d) = \sum_{c \in C}\sin \left( \frac{c \pi}{r_{cut}} * d  \right) / d
+\end{equation}
+
+The expansions provides a representation of similarity or dissimilarity, between the input relative position $\vec{r}_{ij}$,
+and the chosen points $C$ \cite{rbf}. This information is further expanded by a neural network layer with a set of weights
+biases, seen in equation \ref{eq:wandb}, before arriving at the cosine cutoff.
+
+\begin{equation}\label{eq:wandb}
+    y_{rbf} = \mathbf{w} \cdot \mathbf{RBF}(d) + \mathbf{b}
+\end{equation}
+
+The cosine-cutoff function is originally derived from \cite{Behler2011}
+in the form of the equation below\ref{eq:coscutoff}.
+
+\begin{equation}\label{eq:coscutoff}
+    \begin{aligned}
+        \mathbf{f}_{cut}(x) & =
+        \begin{cases}
+            0.5 \cdot \cos \left( \frac{\pi d}{r_{cut}} + 1  \right) & \text{if } d \leq r_{cut} \\
+            0                                                        & \text{if } d > r_{cut}    \\
+        \end{cases}
+    \end{aligned}
+\end{equation}
+
+The cutoff function implemented in this project, utilized the equation below\ref{eq:coscutoffproject}:
+
+\begin{equation}\label{eq:coscutoffproject}
+    \begin{aligned}
+        \mathbf{f}_{cut}(x) & =
+        \begin{cases}
+            0.5 \cdot \cos \left( \frac{\pi d}{r_{cut}} + 1  \right) \cdot y_{rbf} & \text{if } d \leq r_{cut} \\
+            0                                                                      & \text{if } d > r_{cut}    \\
+        \end{cases}
+    \end{aligned}
+\end{equation}
+
+This alteration allows for the flow of information from both the radial basis expansions and the initial vector differences,
+which from the process diagram in\cite{PAINN}, is not happening, although this is believed by the project to be the intention.
+These three highlighted steps, the rbf, the set of weights and biases and the cosine cutoff,
+constitute the rotationally invariant filter $\mathcal{W}_{s}$, proposed by \cite{Gasteiger2020},
+and \cite{Behler2011}, and have been highlighted in this section, due to the difference in approaches from these propositions.
+
+\subsection{Ensembles}
+
+Ensembles is a technique for combining the predictive performance of individual modelling approaches
+and to as an extension measuring total uncertainty in the model.
+In the context of MPNNs, ensembles can be created by training multiple models with different initializations,
+and combining their predictions.
+
+Let $\mathbf{y}_i$ be the predicted binding energy for molecule $i$ by model $M_k$, where $i$ represents the molecule index and $k$
+represents the model index. The ensemble prediction $\hat{\mathbf{y}}_i$ can be calculated as the mean of the individual
+model predictions, as done in\cite{Tran2019}:
+
+\begin{equation}\label{eq:mean-ensemble}
+    \hat{\mathbf{y}}_i = \frac{1}{T} \sum_{k=1}^T \mathbf{y}_i^{(j)} = \hat{\mu_{i}}
+\end{equation}
+
+where $T$ is the number of models in the ensemble. This format of calculation weights the inputs from each model equally,
+similarly to if it was a uniformly weighted mixture model as in \cite{Busk2021}.
+
+To estimate the uncertainty in the ensemble predictions, we can calculate the variance of the individual model
+predictions\cite{Tran2019}:
+
+\begin{equation}\label{eq:variance-ensemble}
+    \text{Var}(\hat{\mathbf{y}}_i) = \frac{1}{T} \sum_{k=1}^T (\mathbf{y}_i^{(k)} - \hat{\mathbf{y}}_i)^2 = \hat{\sigma^{2}_{i}}
+\end{equation}
+
+Finally as the foundation of estimating uncertainty in the ensemble predictions, we can estimate the calibration error, via the
+following equation\cite{Busk2021}:
+
+\begin{equation}\label{eq:calibration-error}
+    ENCE = \frac{1}{k} \sum_{k=1}^K \frac{|RMV_{k} - RMSE_{k}|}{RMV_{k}}
+\end{equation}
+
+The approach of \cite{Busk2021} is based on models in an ensemble, outputting both a mean value and a variance metric, effectively
+predicting both the target, and predicting its own uncertainty. This is not the case in this project, since the model solely predicts
+the target.
+
+
+\newpage

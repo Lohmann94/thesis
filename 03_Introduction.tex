@@ -1,0 +1,73 @@
+\section{Introduction}\label{sec:intro}
+
+The implications of predicting molecular properties and dynamics have both large industrial- and research implications within
+the natural- and life-sciences. The large amounts of compute, necessary for simulation, often makes desirable metrics intractable
+to estimate. The efforts of this study, will help provide tools for industry to reduce lead time and risk in development fields
+such as drug discovery and material sciences for energy storage\cite{Busk2021}.  \\
+
+These interests, have for many years been supported by research and development methods within
+the traditional field of chemistry, with emphasis on estimation techniques, that carry a heavy computational load like traditional
+molecular dynamics (MD)\cite{Behler2011} or Density Functional Theory\cite{Busk2021}. Therefore, despite the emergence of
+cloud-data-centers and power full algorithms available at lower cost to research, some problems still exist which are intractable
+with known methods.\\
+
+That fact, has prompted the emergence of the computational fields within Artificial Intelligence (AI), such as Machine Learning (ML),
+Deep Learning (DL) and Geometric Deep Learning (GDL), to enrich the solution space. These methods produce models which tries to
+decrease the lead time for predictions, while maintaining an acceptable error-rate\cite{Gasteiger2020}. Specifically the field
+of Geometric Deep Learning, has emerged with a viable set of data-driven methods, for predicting molecular properties and
+dynamics\cite{Atz2021}. Geometric Deep Learning comprises a set of methods, which tries to enrich the initial data structures
+with a geometric prior through the structuring of data in i.e graphs, which is comprised of nodes and edges
+between nodes\cite{Atz2021}. Examples of encoded information could be distances, angles or directions between nodes,
+as well as symmetry properties namely equivariance or invariance.\\
+
+Since significant risk is embodied in the task of predicting chemical and biochemical dynamics, due to end-uses often being
+utilized in pharmaceutical products, proper mechanisms for estimating the the uncertainty around prediction methods, and
+mitigating the impact of high uncertainty through calibration, are needed. Traditionally, data-driven methods within machine
+learning and deep learning, have problems with providing the necessary uncertainties, on the metrics being predicted, making
+calibration for more robust overall performance hard\cite{Song2019}\cite{Busk2021}\cite{AleatoricAndEpistemic}.
+Providing methods for estimating uncertainty, and calibrating, would allow for defaulting to more traditional methods
+for estimating chemical properties, when uncertainty is high in the data-driven models\cite{Busk2021}. \\
+
+In support of producing such methods, uncertainty, can effectively be distinguished between two concepts,
+namely epistemic- and aleatoric- uncertainty\cite{Busk2021}\cite{AleatoricAndEpistemic}. Aleatoric, also known as statistical
+uncertainty, refers to the uncertainty inherent in experimental outcomes, due to random effects. This class of uncertainty is
+classified as irreducible, due to no amount of additional information in the modelling effort, being able to reduce this type
+of uncertainty\cite{AleatoricAndEpistemic}. Epistemic, also called systemic uncertainty, refers to the uncertainty in a model,
+produced by lack of information, and can therefore be reduced. These two elements of uncertainty are considered by researchers
+to be the sole components of total uncertainty, their sum being equal to total uncertainty in an
+experiment\cite{AleatoricAndEpistemic}.\\
+
+This paper is concerned with the task of molecular estimation of a single property, namely the binding energy in a catalyst process
+between a transition metal, and a ligand\cite{Meyer2018}. The objective is to compare two ensembles of machine learning models
+that try to predict the binding energy, with similar architecture, but different hyperparameters in their internal representations
+of molecules, namely the state representation of scalar- and vector-properties of graphs. The main contribution of this paper,
+will be to assess the influence of this hyperparameter on modelling performance and uncertainty, through the comparison of the
+ensembles. This modelling performance will be measured in both a traditional metrics namely the Mean Squared Error between the
+regression metric and the target, but also the uncertainty in the ensembles, produced by changing the hyperparameters to
+a different value. \\
+
+Specifically, this paper will utilize a Message Passing Neural Network (MPNN) architecture inspired by the
+PAINN architecture\cite{PAINN}, to ingest graph representations of molecules, with Cartesian coordinates, atom-types and lengths
+of the bonds in molecules, in order to predict the binding energy in kcal per mol. This model structure, will be provided with
+a different set of internalt state complexity, and placed in two seperate uniformly weighted mixture models, one with higher sophistication
+and one with lower.
+The MPNN models will provide individual estimates of the target value in the test-set, where the mean and variance of the ensembles
+will be the bedrock for ensemble predictions and uncertainty estimations, inspired by\cite{Lakshminarayanan2016}, and \cite{Tran2019}.\\
+
+Specifically, this paper asks:
+
+\begin{center}
+  \textbf{\textit{Does the size of internal state representations, impact prediction error and uncertainty in ensembles of
+      Message Passing Neural Networks}}
+\end{center}
+
+The following sections of this paper, namely[\ref{sec:intro},\ref{sec:definitions},\ref{sec:theory}],
+we will go through relevant concepts and theories, necessary for assessing the results and methods in this paper.
+This is followed by a description of the experimental methods, and a presentation of the data set,
+on which the methods have been utilized in sections[\ref{sec:methods},\ref{sec:data}].
+Lastly, results followed by a conclusion and a discussion of the potential points of error,
+which influence the outcomes of the experiment in sections[\ref{sec:results},\ref{sec:discussion},\ref{sec:conclusion}].
+
+\newpage
+
+
