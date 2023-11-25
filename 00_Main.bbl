@@ -51,6 +51,38 @@ K.~Atz, F.~Grisoni, and G.~Schneider, ``Geometric deep learning on molecular
   representations,'' \emph{Nature Machine Intelligence}, vol.~3, pp.
   1023--1032, 12 2021.
 
+\bibitem{Unke2021}
+\BIBentryALTinterwordspacing
+O.~T. Unke, M.~Bogojeski, M.~Gastegger, M.~Geiger, T.~Smidt, and K.~R. Müller,
+  ``Se(3)-equivariant prediction of molecular wavefunctions and electronic
+  densities,'' \emph{Advances in Neural Information Processing Systems},
+  vol.~18, pp. 14\,434--14\,447, 6 2021. [Online]. Available:
+  \url{https://arxiv.org/abs/2106.02347v2}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Zhang2020}
+\BIBentryALTinterwordspacing
+S.~Zhang, Y.~Liu, and L.~Xie, ``Molecular mechanics-driven graph neural network
+  with multiplex graph for molecular structures,'' 11 2020. [Online].
+  Available: \url{https://arxiv.org/abs/2011.07457v1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{PAINN}
+\BIBentryALTinterwordspacing
+K.~T. Schütt, O.~T. Unke, and M.~Gastegger, ``Equivariant message passing for
+  the prediction of tensorial properties and molecular spectra,''
+  \emph{Proceedings of Machine Learning Research}, vol. 139, pp. 9377--9388, 2
+  2021. [Online]. Available: \url{https://arxiv.org/abs/2102.03150v4}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Zhou2018}
+\BIBentryALTinterwordspacing
+J.~Zhou, G.~Cui, S.~Hu, Z.~Zhang, C.~Yang, Z.~Liu, L.~Wang, C.~Li, and M.~Sun,
+  ``Graph neural networks: A review of methods and applications,'' \emph{AI
+  Open}, vol.~1, pp. 57--81, 12 2018. [Online]. Available:
+  \url{https://arxiv.org/abs/1812.08434v6}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Song2019}
 \BIBentryALTinterwordspacing
 H.~Song, T.~Diethe, M.~Kull, and P.~Flach, ``Distribution calibration for
@@ -64,19 +96,28 @@ E.~Hüllermeier and W.~Waegeman, ``Aleatoric and epistemic uncertainty in
   machine learning: an introduction to concepts and methods,'' \emph{Machine
   Learning}, vol. 110, pp. 457--506, 3 2021.
 
+\bibitem{Scalia2019}
+\BIBentryALTinterwordspacing
+G.~Scalia, C.~A. Grambow, B.~Pernici, Y.~P. Li, and W.~H. Green, ``Evaluating
+  scalable uncertainty estimation methods for dnn-based molecular property
+  prediction,'' \emph{Journal of Chemical Information and Modeling}, vol.~60,
+  pp. 2697--2717, 10 2019. [Online]. Available:
+  \url{https://arxiv.org/abs/1910.03127v1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pearce2018}
+\BIBentryALTinterwordspacing
+T.~Pearce, F.~Leibfried, A.~Brintrup, M.~Zaki, and A.~Neely, ``Uncertainty in
+  neural networks: Approximately bayesian ensembling,'' \emph{Proceedings of
+  Machine Learning Research}, vol. 108, pp. 234--244, 10 2018. [Online].
+  Available: \url{https://arxiv.org/abs/1810.05546v5}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Meyer2018}
 B.~Meyer, B.~Sawatlon, S.~Heinen, O.~A.~V. Lilienfeld, and C.~Corminboeuf,
   ``Machine learning meets volcano plots: Computational discovery of
   cross-coupling catalysts,'' \emph{Chemical Science}, vol.~9, pp. 7069--7077,
   2018.
-
-\bibitem{PAINN}
-\BIBentryALTinterwordspacing
-K.~T. Schütt, O.~T. Unke, and M.~Gastegger, ``Equivariant message passing for
-  the prediction of tensorial properties and molecular spectra,''
-  \emph{Proceedings of Machine Learning Research}, vol. 139, pp. 9377--9388, 2
-  2021. [Online]. Available: \url{https://arxiv.org/abs/2102.03150v4}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Lakshminarayanan2016}
 \BIBentryALTinterwordspacing
@@ -96,6 +137,15 @@ K.~Tran, W.~Neiswanger, J.~Yoon, Q.~Zhang, E.~Xing, and Z.~W. Ulissi, ``Methods
 
 \bibitem{rbf}
 ``The radial basis function kernel.''
+
+\bibitem{Schütt2017}
+\BIBentryALTinterwordspacing
+K.~Schütt, P.-J. Kindermans, H.~E.~S. Felix, S.~Chmiela, A.~Tkatchenko, and
+  K.-R. Müller, ``Schnet: A continuous-filter convolutional neural network for
+  modeling quantum interactions,'' \emph{Advances in Neural Information
+  Processing Systems}, vol.~30, 2017. [Online]. Available:
+  \url{www.quantum-machine.org.}
+\BIBentrySTDinterwordspacing
 
 \bibitem{hpc}
 \BIBentryALTinterwordspacing

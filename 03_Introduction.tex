@@ -16,10 +16,24 @@ Deep Learning (DL) and Geometric Deep Learning (GDL), to enrich the solution spa
 decrease the lead time for predictions, while maintaining an acceptable error-rate\cite{Gasteiger2020}. Specifically the field
 of Geometric Deep Learning, has emerged with a viable set of data-driven methods, for predicting molecular properties and
 dynamics\cite{Atz2021}. Geometric Deep Learning comprises a set of methods, which tries to enrich the initial data structures
-with a geometric prior through the structuring of data in i.e graphs, which is comprised of nodes and edges
-between nodes\cite{Atz2021}. Examples of encoded information could be distances, angles or directions between nodes,
-as well as symmetry properties namely equivariance or invariance.\\
-%#TODO Skriv lidt mere om graf neurale netværk specifikt, og hvilke andre modeller som beskæftiger sig med geometric deep learning
+with a geometric prior. One of these methods is graph neural networks (GNN's) which structures the molecular-data in graphs,
+which is comprised of nodes and edges between nodes (representing atoms and bonds respectively), in an i.e euclidean space\cite{Atz2021}.
+These models can encode information such as distances, angles or directions between nodes, allowing also for symmetry-priors of the invariant and
+equivariant types\cite{Unke2021}\\ The most popular architecture within GNN's is the Message Passing Neural Network (MPNN)\cite{Atz2021}.
+This architecture, allows for iterative updates of message information between nodes in the graph representation, allowing for
+exchanges of information between nodes based on their relationship to each other.
+Specific models that have shown promise within the chemical space, is the
+Directional Message Passing Neural Network (DimeNet) model\cite{Gasteiger2020}, the Multiplex Molecular Graph Neural Network (MXMNet)
+model \cite{Zhang2020}, and the polarizable atom interaction neural network (PAINN) model\cite{PAINN}.
+Central to these models is the graph representation of information, allowing
+for node-features to update based on the information of neighbouring nodes. Where they differ is in i.e their definition of the term
+neighbour.
+Traditionally, the concept of a neighbour node, is mainly defined by the euclidean distance between the nodes\cite{Zhou2018}.
+This however, DimeNet challenges by including directional information in the definition, while maintaining critical symmetry properties in the model.
+MXMNet segments node representations into two segments, those representing a covalent influence on the node, and those representing
+a Wan der Waals influence on the node, allowing them to be modeled seperately and weighed based on importance\cite{Zhang2020}. In the case
+of the PAINN-model, it introduces novel ways to do equivariant operations in cartesian space, allowing the model achitecture to outperform
+among other the DimeNet model, on numerousprediction tasks. \\
 
 Since significant risk is embodied in the task of predicting chemical and biochemical dynamics, due to end-uses often being
 utilized in pharmaceutical products, proper mechanisms for estimating the the uncertainty around prediction methods, and
@@ -37,28 +51,58 @@ classified as irreducible, due to no amount of additional information in the mod
 of uncertainty\cite{AleatoricAndEpistemic}. Epistemic, also called systemic uncertainty, refers to the uncertainty in a model,
 produced by lack of information, and can therefore be reduced. These two elements of uncertainty are considered by researchers
 to be the sole components of total uncertainty, their sum being equal to total uncertainty in an
-experiment\cite{AleatoricAndEpistemic}.\\
-%#TODO Skriv noget mere om hvad andre gør, hvilke andre metoder er der som beskæftiger sig med usikkerhed
+experiment\cite{AleatoricAndEpistemic}. Specific methods for estimating these classes of uncertainty in neural networks,
+have been proposed in recent years. In \cite{Scalia2019}, Three methods for estimating
+uncertainty for in Deep Neural Networks (DNN's). These three methods are Monte Carlo Dropout (MC Dropout), Ensembling, and Bootstrapping.
+MC Dropout, relies on training neural networks (NN's), with dropout regularization, and after training producing a set of samples,
+with different random masks. The uncertainty can then be estimate by looking at the variance over these predictions.
+Ensembling relies on training the same model architecture, on the same data set with random initializations.
+The uncertainty can then be estimated by looking at the variance of the predictions of the ensemble of models.
+Evidence suggests that these ensembles produce better results, when the ensemble is 'diverse'\cite{Pearce2018}.
+These recent results indicate implementing methods like early stopping (A method that breaks the training-loop if a validation
+metric stagnates), and weight decay (A method that penalises large weights in the neural network), will increase this
+diversity for the better. These methods applied to ensembling, is viewed as a discrete method from ensembling
+itself\cite{Scalia2019} called anchored ensembling. Similar to ensembling is bootstrapping, where a set of models are trained
+like in ensembling, but this time of different subsets of the data set. These subsets are picked with replacement at random,
+and all subsets will effectively have some overlap in data points, while still having some diversity in points among each other.
+The conclusion in \cite{Scalia2019} is that bootstrapping and ensembling are both superior methods to MC Dropout, while
+being inconclusive on which is the better method between bootstrapping and ensembling.\\
 
-This paper is concerned with the task of molecular estimation of a single property, namely the binding energy in a catalyst process
-between a transition metal, and a ligand\cite{Meyer2018}. The objective is to compare two ensembles of machine learning models
-that try to predict the binding energy, with similar architecture, but different hyperparameters in their internal representations
-of molecules, namely the state representation of scalar- and vector-properties of graphs. The main contribution of this paper,
-will be to assess the influence of this hyperparameter on modelling performance and uncertainty, through the comparison of the
-ensembles. This modelling performance will be measured in both a traditional metrics namely the Mean Squared Error between the
-regression metric and the target, but also the uncertainty in the ensembles, produced by changing the hyperparameters to
-a different value. \\
-%#TODO Definer ensembler tidligere end det her ala: 
+The overall goal of this project, is to compare two ensembles of five machine learning models in each,
+which all are of the type Message Passing Neural Networks with architecture inspired by the
+PAINN architecture\cite{PAINN}. PAINN has been established as a state of the art method, within the space of GNN's in the field of chemistry,
+which was essential for the choice of the architecture. The individual models in the ensemble, output a single metric,
+trying to predict the binding energy of the catalyst process represented by its input.
+These predictions are then combined to produce a mean prediction and a variance for each ensemble.
+although the individual models are similar in architecture, they have different hyperparameters in their internal representations
+of molecules. Specifically the state representation of scalar- and vector-properties of the input graphs.
+One ensemble of models will have a half (64)
+of the dimensions-size for representing both scalar- and vector-properties, compared to the other ensemble (128).
+The individual models in the ensembles will be trained with weight decay and early stopping,
+in alignment with current state of the art methods, in order to produce diversity. \\
 
-Specifically, this paper will utilize a Message Passing Neural Network (MPNN) architecture inspired by the
-PAINN architecture\cite{PAINN}, to ingest graph representations of molecules, with Cartesian coordinates, atom-types and lengths
-of the bonds in molecules, in order to predict the binding energy in kcal per mol. This model structure, will be provided with
-a different set of internalt state complexity, and placed in two seperate uniformly weighted mixture models, one with higher sophistication
-and one with lower.
-The MPNN models will provide individual estimates of the target value in the test-set, where the mean and variance of the ensembles
-will be the bedrock for ensemble predictions and uncertainty estimations, inspired by\cite{Lakshminarayanan2016}, and \cite{Tran2019}.\\
+The models will be trained
+on a molecular data set\cite{Meyer2018}, comprising of 7.053 molecules. This dataset contain atom-types, coordinates, and binding
+energy in kcal per mol, where the latter is our regression target.
+The main contribution of this paper,
+will be to assess the influence of this hyperparameter difference on modelling performance measured by the mean squared
+error (MSE)
+between the predictions of the ensembles and the actual target values,
+and epistemic uncertainty founded in the variance in the predictions of the ensembles inspired by\cite{Lakshminarayanan2016},
+and \cite{Tran2019}. The Expected Normalized Calibration Error (ENCE), will also be calculated as a supplementary measure.\\
 
-%#TODO beskriv målsætning: implementer fra bunden, hvordan state repræsentatio osv, implementere ensemble mhp at estimere usikkerhed, se obsidian for mere
+The goal of this project has been to implement the model architecture from scratch, utilizing tools and packages from the
+\textit{PyTorch} library. This with the intention of achieving a more detailed understanding of the modelling task, uncertainty in modelling,
+and the model structure itself. This specifically means implementing the MPNN architecture\cite{PAINN}, and the ensembling procedure from
+scratch. The project is limited in terms of providing a measure for both epistemic and aleatoric uncertainty. Since the individual models in the ensembles
+only predict a single value, trying to minimize the MSE-loss function, and not an output mean and variance like done in Busk2021\cite{Busk2021}, and
+proposed in \cite{Lakshminarayanan2016}, aleatoric uncertainty can not be estimated. The distinquishing between the two types of uncertainty,
+while being the state of the art for evaluating uncertainty in modelling tasks, is not attainable due to the scope of the project.
+The choice of estimating uncertainty via the variance and mean over ensemble predictions, are viable options performed in Tran\cite{Tran2019},
+and proposed by Scalia\cite{Scalia2019}, but critiqued for its lack of capabilities in Lakshminarayanan\cite{Lakshminarayanan2016}.
+The sole data set in scope of this project is the C-c catalyst dataset\cite{Meyer2018}. The choice came down to the accesability of the data set,
+being limited to 7.053 molecules, with easy to comprehend data structures. This choice supported the desire to emphasize understanding the 
+modelling task and uncertainty in modelling. \\
 
 Specifically, this paper asks:
 
@@ -70,7 +114,7 @@ Specifically, this paper asks:
 %#TODO beskriv hvorfor jeg har scopet projektet lige præcis som jeg har, hvorfor denne model, dette datasæt, hvorfor kun en bestemt type usikkerhed
 %#TODO underbyg argumenter med enten at det er eksperimentelt vist, eller at det er SOTA
 
-The following sections of this paper, namely[\ref{sec:intro},\ref{sec:definitions},\ref{sec:theory}],
+The following sections of this paper, namely[\ref{sec:intro},\ref{sec:theory}],
 we will go through relevant concepts and theories, necessary for assessing the results and methods in this paper.
 This is followed by a description of the experimental methods, and a presentation of the data set,
 on which the methods have been utilized in sections[\ref{sec:methods},\ref{sec:data}].

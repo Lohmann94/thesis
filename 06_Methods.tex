@@ -57,76 +57,7 @@ property, allows for the embedding function to create a unique atom representati
 allow for a masking of the edges and thereby nodes that are not within the cutoff limit. The edge\_vector\_diffs are the vector differences
 of the edges, being an input variable in the message block.
 
-
-
-\subsection{Model}\label{subsec:model}
-%#TODO Flyt hele dette afsnit ned til theory section
-
-The model architecture consists of two main components, namely the Message block, and the Update block as formerly introduced in the
-the theory section \ref{eq:message_block}, and \ref{eq:update_block}.  The Message block is conceptually responsible
-for the message passing between the nodes in the graph, allowing for the flow of information between the nodes.
-This information is then summed up and stored in state variables in the form of a scalar and vector representation.
-This summation is done in a residual manner, following the implementation of the PAINN architecture\cite{PAINN}. An equation
-defining the residual calculation of the scalar-properties\ref{eq:residual_scalar} and vector-properties\ref{eq:residual_vector}
-can be found below, as well as an illustration of the message block\ref{img:message_block}.
-
-\begin{equation}\label{eq:residual_scalar}
-    \Delta \mathbf{s}_{i}^{m}= (\phi_{s}(\mathbf{s}) * \mathcal{W}_{s})_{i} = \sum_{j} \phi_{s}(\mathbf{s}) \circ \mathcal{W}_{s} \left ( \left \| r_{ij} \right \| \right )
-\end{equation}
-
-\begin{equation}\label{eq:residual_vector}
-    \Delta \vec{\mathbf{v}}_{i}^{m}= \sum_{j} \vec{\mathbf{v}}_{j} \circ \phi_{vv}(\mathbf{s}_{j}) \circ \mathcal{W}_{vv} \left ( \left \| r_{ij} \right \| \right ) + \sum_{j} \phi_{vs}(\mathbf{s}_{j}) \circ \mathcal{W}'_{vs} \left ( \left \| r_{ij} \right \| \right ) * \frac{r_{ij}}{\left \| r_{ij} \right \|}
-\end{equation}
-
-\begin{figure}[H]
-    \caption{Message Block}
-    \centering\label{img:message_block}
-    \includegraphics[width=250pt]{Images/Method/message_block.png}
-\end{figure}
-
-Worth noting about the figure, compared to the similar one in \cite{PAINN}, is the use of the \textit{r\_ij} vector, that also flow into
-the 'fcut' function, as mentioned in \ref{subsec:modelling_task}. The model in this paper, does not highlight the dimension expansions
-or collisions from network element to network element, due to the model parameters varying in size, as it is the scope of this project
-to investigate similarities or dissimilarities in performance, with respect to the PAINN architecture and dissimilar state representation
-sizes. both sizes $\phi$ and $\mathcal{W}$ are chosen sub-architectures based on the PAINN architecture from\cite{PAINN}. The image
-also contains hints of the $\mathbf{a}$-tensor, which is a product of the $\phi$ and $\mathcal{W}$ tensors, and not highlighted in \cite{PAINN}.
-
-The residual values produced in the message block, then used in the update block, in order to update the node states,
-based on the summation over neighbouring states.
-This structure is also heavily inspired by the PAINN architecture\cite{PAINN}. The below equations represent the residual updates
-on both the scalar- \ref{eq:residual_scalar_update} and the vector- \ref{eq:residual_vector_update} properties. Below is also
-a figure representing the update block\ref{img:update_block}.
-
-\begin{equation}\label{eq:residual_scalar_update}
-    \Delta \mathbf{s}_{i}^{u}= \mathbf{a}_{ss} \left ( \mathbf{s}_{i}, \left \| \mathbf{V}\vec{\mathbf{v}}_{i} \right \| \right ) + \mathbf{a}_{sv} \left ( \mathbf{s}_{i}, \left \| \mathbf{V}\vec{\mathbf{v}}_{i} \right \| \right ) \left \langle \mathbf{U} \vec{\mathbf{v}}_{i}, \mathbf{V} \vec{\mathbf{v}}_{i} \right \rangle
-\end{equation}
-
-\begin{equation}\label{eq:residual_vector_update}
-    \Delta \mathbf{v}_{i}^{u}= \mathbf{a}_{vv} \left ( \mathbf{s}_{i}, \left \| \mathbf{V}\vec{\mathbf{v}}_{i} \right \| \right ) \mathbf{U}\vec{\mathbf{v}}_{i}
-\end{equation}
-
-\begin{figure}[H]
-    \caption{Update block}
-    \centering\label{img:update_block}
-    \includegraphics[width=250pt]{Images/Method/message_block.png}
-\end{figure}
-
-Worth noting about the above figure \ref{img:update_block}, is that the indexes of the scalar and vector representations, 
-have been altered, compared to \cite{PAINN}. This comes down to the project evaluating the indexing of the scalar and vector
-representations, in the paper, were faulty, and did not represent the PAINN architecture as described in prior sections of the
-paper.
-
-The blocks are stacked in coupled sequences of five full rounds, like the illustration below highlights\ref{img:MPNN_arc}, a corresponsding model can be found
-in \cite{PAINN}. The illustration shows an architecture comprised of three sets of message- and update-blocks, the implementation in this project utilized
-five sets. The model representation property $\vec{v_i^{0}}$ is initialized to the zero vector, and the scalar property $S_{i}^{0}$
-is initialized to a random embedding on atom level, for each node in the graph.
-
-
-\begin{figure}[H]
-    \caption{MPNN Full Architecture}
-    \centering\label{img:MPNN_arc}
-    \includegraphics[width=200pt]{Images/Method/MPNN_arc.png}
-\end{figure}
+%#TODO kom med argumentation for hvorfor 5 modeller i ensemble
 
 \subsection{Training- and Validation-loop}\label{subsec:training}
 
@@ -212,6 +143,36 @@ Generally, two subsets of hyperparameters exists, those relevant to the less sop
 relevant to the more sophisticated ensemble models (titled MPNN128). The table below\ref{tab:hyperparameters},
 details shared and non-shared model hyperparameters, as well
 as highlighting the parameters, which are consistent with the PAINN architecture described in \cite{PAINN} with a star (*).
+
+\subsubsection{Hyperparameter selection}\label{subsubsec:selec:hyperparam}
+
+%experiment: space = {
+%    'r_cut': hp.uniform('r_cut', 2.0, 5),
+%    'learning_rate': hp.uniform('learning_rate', 0.0001, 0.01),
+%}  # Run the hyperparameter optimization
+%
+%best = fmin(objective, space, algo=tpe.suggest, max_evals=20)
+
+%train_graphs = 10
+%val_graphs = 5
+%batch_size = 5
+%epochs = 5
+%result : r_cut = 2.72, lr: 0.0032
+
+%experiment 2:
+%experiment: space = {
+%    'r_cut': hp.uniform('r_cut', 2.5, 3.5),
+%    'learning_rate': hp.uniform('learning_rate', 0.0005, 0.005),
+%}  # Run the hyperparameter optimization
+%
+%best = fmin(objective, space, algo=tpe.suggest, max_evals=20)
+
+%train_graphs = 10
+%val_graphs = 5
+%batch_size = 5
+%epochs = 10
+%result lr 0.0042844462218639585, 'r_cut': 3.1928438594107265}
+
 
 \begin{table}[H]
     \centering

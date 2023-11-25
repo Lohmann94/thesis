@@ -222,6 +222,89 @@
   title    = {The Radial Basis Function Kernel}
 }
 
+@article{Unke2021,
+   abstract = {Machine learning has enabled the prediction of quantum chemical properties with high accuracy and efficiency, allowing to bypass computationally costly ab initio calculations. Instead of training on a fixed set of properties, more recent approaches attempt to learn the electronic wavefunction (or density) as a central quantity of atomistic systems, from which all other observables can be derived. This is complicated by the fact that wavefunctions transform non-trivially under molecular rotations, which makes them a challenging prediction target. To solve this issue, we introduce general SE(3)-equivariant operations and building blocks for constructing deep learning architectures for geometric point cloud data and apply them to reconstruct wavefunctions of atomistic systems with unprecedented accuracy. Our model achieves speedups of over three orders of magnitude compared to ab initio methods and reduces prediction errors by up to two orders of magnitude compared to the previous state-of-the-art. This accuracy makes it possible to derive properties such as energies and forces directly from the wavefunction in an end-to-end manner. We demonstrate the potential of our approach in a transfer learning application, where a model trained on low accuracy reference wavefunctions implicitly learns to correct for electronic many-body interactions from observables computed at a higher level of theory. Such machine-learned wavefunction surrogates pave the way towards novel semi-empirical methods, offering resolution at an electronic level while drastically decreasing computational cost. Additionally, the predicted wavefunctions can serve as initial guess in conventional ab initio methods, decreasing the number of iterations required to arrive at a converged solution, thus leading to significant speedups without any loss of accuracy or robustness.},
+   author = {Oliver T. Unke and Mihail Bogojeski and Michael Gastegger and Mario Geiger and Tess Smidt and Klaus Robert Müller},
+   isbn = {9781713845393},
+   issn = {10495258},
+   journal = {Advances in Neural Information Processing Systems},
+   month = {6},
+   pages = {14434-14447},
+   publisher = {Neural information processing systems foundation},
+   title = {SE(3)-equivariant prediction of molecular wavefunctions and electronic densities},
+   volume = {18},
+   url = {https://arxiv.org/abs/2106.02347v2},
+   year = {2021},
+}
+
+@article{Zhang2020,
+   abstract = {The prediction of physicochemical properties from molecular structures is a crucial task for artificial intelligence aided molecular design. A growing number of Graph Neural Networks (GNNs) have been proposed to address this challenge. These models improve their expressive power by incorporating auxiliary information in molecules while inevitably increase their computational complexity. In this work, we aim to design a GNN which is both powerful and efficient for molecule structures. To achieve such goal, we propose a molecular mechanics-driven approach by first representing each molecule as a two-layer multiplex graph, where one layer contains only local connections that mainly capture the covalent interactions and another layer contains global connections that can simulate non-covalent interactions. Then for each layer, a corresponding message passing module is proposed to balance the trade-off of expression power and computational complexity. Based on these two modules, we build Multiplex Molecular Graph Neural Network (MXMNet). When validated by the QM9 dataset for small molecules and PDBBind dataset for large protein-ligand complexes, MXMNet achieves superior results to the existing state-of-the-art models under restricted resources.},
+   author = {Shuo Zhang and Yang Liu and Lei Xie},
+   month = {11},
+   title = {Molecular Mechanics-Driven Graph Neural Network with Multiplex Graph for Molecular Structures},
+   url = {https://arxiv.org/abs/2011.07457v1},
+   year = {2020},
+}
+
+@article{Zhou2018,
+   abstract = {Lots of learning tasks require dealing with graph data which contains rich relation information among elements. Modeling physics systems, learning molecular fingerprints, predicting protein interface, and classifying diseases demand a model to learn from graph inputs. In other domains such as learning from non-structural data like texts and images, reasoning on extracted structures (like the dependency trees of sentences and the scene graphs of images) is an important research topic which also needs graph reasoning models. Graph neural networks (GNNs) are neural models that capture the dependence of graphs via message passing between the nodes of graphs. In recent years, variants of GNNs such as graph convolutional network (GCN), graph attention network (GAT), graph recurrent network (GRN) have demonstrated ground-breaking performances on many deep learning tasks. In this survey, we propose a general design pipeline for GNN models and discuss the variants of each component, systematically categorize the applications, and propose four open problems for future research.},
+   author = {Jie Zhou and Ganqu Cui and Shengding Hu and Zhengyan Zhang and Cheng Yang and Zhiyuan Liu and Lifeng Wang and Changcheng Li and Maosong Sun},
+   doi = {10.1016/j.aiopen.2021.01.001},
+   issn = {26666510},
+   journal = {AI Open},
+   keywords = {Deep learning,Graph neural network},
+   month = {12},
+   pages = {57-81},
+   publisher = {Elsevier B.V.},
+   title = {Graph Neural Networks: A Review of Methods and Applications},
+   volume = {1},
+   url = {https://arxiv.org/abs/1812.08434v6},
+   year = {2018},
+}
+
+@article{Scalia2019,
+   abstract = {Advances in deep neural network (DNN) based molecular property prediction have recently led to the development of models of remarkable accuracy and generalization ability, with graph convolution neural networks (GCNNs) reporting state-of-the-art performance for this task. However, some challenges remain and one of the most important that needs to be fully addressed concerns uncertainty quantification. DNN performance is affected by the volume and the quality of the training samples. Therefore, establishing when and to what extent a prediction can be considered reliable is just as important as outputting accurate predictions, especially when out-of-domain molecules are targeted. Recently, several methods to account for uncertainty in DNNs have been proposed, most of which are based on approximate Bayesian inference. Among these, only a few scale to the large datasets required in applications. Evaluating and comparing these methods has recently attracted great interest, but results are generally fragmented and absent for molecular property prediction. In this paper, we aim to quantitatively compare scalable techniques for uncertainty estimation in GCNNs. We introduce a set of quantitative criteria to capture different uncertainty aspects, and then use these criteria to compare MC-Dropout, deep ensembles, and bootstrapping, both theoretically in a unified framework that separates aleatoric/epistemic uncertainty and experimentally on the QM9 dataset. Our experiments quantify the performance of the different uncertainty estimation methods and their impact on uncertainty-related error reduction. Our findings indicate that ensembling and bootstrapping consistently outperform MC-Dropout, with different context-specific pros and cons. Our analysis also leads to a better understanding of the role of aleatoric/epistemic uncertainty and highlights the challenge posed by out-of-domain uncertainty.},
+   author = {Gabriele Scalia and Colin A. Grambow and Barbara Pernici and Yi Pei Li and William H. Green},
+   doi = {10.1021/acs.jcim.9b00975},
+   issn = {1549960X},
+   issue = {6},
+   journal = {Journal of Chemical Information and Modeling},
+   month = {10},
+   pages = {2697-2717},
+   pmid = {32243154},
+   publisher = {American Chemical Society},
+   title = {Evaluating Scalable Uncertainty Estimation Methods for DNN-Based Molecular Property Prediction},
+   volume = {60},
+   url = {https://arxiv.org/abs/1910.03127v1},
+   year = {2019},
+}
+
+@article{Pearce2018,
+   abstract = {Understanding the uncertainty of a neural network's (NN) predictions is essential for many purposes. The Bayesian framework provides a principled approach to this, however applying it to NNs is challenging due to large numbers of parameters and data. Ensembling NNs provides an easily implementable, scalable method for uncertainty quantification, however, it has been criticised for not being Bayesian. This work proposes one modification to the usual process that we argue does result in approximate Bayesian inference; regularising parameters about values drawn from a distribution which can be set equal to the prior. A theoretical analysis of the procedure in a simplified setting suggests the recovered posterior is centred correctly but tends to have an underestimated marginal variance, and overestimated correlation. However, two conditions can lead to exact recovery. We argue that these conditions are partially present in NNs. Empirical evaluations demonstrate it has an advantage over standard ensembling, and is competitive with variational methods.},
+   author = {Tim Pearce and Felix Leibfried and Alexandra Brintrup and Mohamed Zaki and Andy Neely},
+   issn = {26403498},
+   journal = {Proceedings of Machine Learning Research},
+   month = {10},
+   pages = {234-244},
+   publisher = {ML Research Press},
+   title = {Uncertainty in Neural Networks: Approximately Bayesian Ensembling},
+   volume = {108},
+   url = {https://arxiv.org/abs/1810.05546v5},
+   year = {2018},
+}
+
+@article{Schütt2017,
+   abstract = {Deep learning has the potential to revolutionize quantum chemistry as it is ideally suited to learn representations for structured data and speed up the exploration of chemical space. While convolutional neural networks have proven to be the first choice for images, audio and video data, the atoms in molecules are not restricted to a grid. Instead, their precise locations contain essential physical information, that would get lost if discretized. Thus, we propose to use continuous-filter convolutional layers to be able to model local correlations without requiring the data to lie on a grid. We apply those layers in SchNet: a novel deep learning architecture modeling quantum interactions in molecules. We obtain a joint model for the total energy and interatomic forces that follows fundamental quantum-chemical principles. Our architecture achieves state-of-the-art performance for benchmarks of equilibrium molecules and molecular dynamics trajectories. Finally, we introduce a more challenging benchmark with chemical and structural variations that suggests the path for further work.},
+   author = {Kristof Schütt and Pieter-Jan Kindermans and Huziel Enoc Sauceda Felix and Stefan Chmiela and Alexandre Tkatchenko and Klaus-Robert Müller},
+   journal = {Advances in Neural Information Processing Systems},
+   title = {SchNet: A continuous-filter convolutional neural network for modeling quantum interactions},
+   volume = {30},
+   url = {www.quantum-machine.org.},
+   year = {2017},
+}
+
+
+
 
 
 
