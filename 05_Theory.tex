@@ -415,17 +415,18 @@ Denote the number of elements in the bin as $N$, where the
 expression of the RMSE, is as follows:
 
 \begin{equation}
-    RMSE_{k} = \sqrt{\frac{1}{N} \sum_{n=1}^N \left( e_{n,k} \right)^2}
+    RMSE_{k} = \sqrt{\frac{1}{N} \sum_{n=1}^N \left( e_{n}^{(k)} \right)^2}
 \end{equation}
 
-We now go through a similar process, for differences between individual predictions and the means of the predictions 
-$d = y_{i,t} - \tilde{y}_{i}$. We sort them in ascending order. Define $K = \{1,2,\ldots,K\}$ bins, and $P = \{p_0, p_1, ..., p_K\}$ 
+We now go through a similar process, for variances over individual predictions and the means of the predictions 
+$\text{Var}(\mathbf{y}_{i}) = \frac{1}{T} \sum_{t=1}^T (\mathbf{y}_{i,t} - \tilde{\mathbf{y}}_i)^2$. 
+We sort them in ascending order. Define $K = \{1,2,\ldots,K\}$ bins, and $P = \{p_0, p_1, ..., p_K\}$ 
 quantiles for the difference metric to be sorted into. the sorting is done via the below expression for all $k \in \{1,2,\ldots,K\}$ 
 and all models $t \in \{1,2,\ldots,T\}$:
 
 \begin{equation}\label{eq:bin-difference}
-    bin_{k}(d) =\begin{cases}
-        1, & \text{if } d \in binrange(k) \\
+    bin_{k}(\text{Var}(\mathbf{y}_{i})) =\begin{cases}
+        1, & \text{if } \text{Var}(\mathbf{y}_{i}) \in binrange(k) \\
         0, & \text{otherwise}
     \end{cases}
 \end{equation}
@@ -436,7 +437,7 @@ Denote the number of elements in the bin as $N$, where the
 expression of the RMV, is as follows:
 
 \begin{equation}
-    RMV_{k} = \sqrt{\frac{1}{N} \sum_{n=1}^N  d_{n,k}}
+    RMV_{k} = \sqrt{\frac{1}{N} \sum_{n=1}^N  \text{Var}(\mathbf{y}_{i})_{n}^{(k)}}
 \end{equation}
 
 We now wish to produce the ENCE-metric\ref{eq:calibration-error}\cite{Busk2021}.
@@ -445,7 +446,7 @@ These metrics are calculated for each $k$-bin, for the chosen number of bins $K$
 is defined below, followed by the RMSE and the RMV.
 
 \begin{equation}\label{eq:calibration-error}
-    ENCE = \frac{1}{k} \sum_{k=1}^K \frac{|RMV_{k} - RMSE_{k}|}{RMV_{k}}
+    ENCE = \frac{1}{K} \sum_{k=1}^K \frac{|RMV_{k} - RMSE_{k}|}{RMV_{k}}
 \end{equation}
 
 These methods are heavily inspired by the methods in the papers\cite{Tran2019} and \cite{Busk2021}. Elements and approaches have been 

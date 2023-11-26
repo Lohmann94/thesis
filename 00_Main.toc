@@ -26,10 +26,10 @@
 \contentsline {subsection}{\numberline {6.1}Cross Coupling Catalysts}{28}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Data Privacy- and Quality-issues}{33}{subsection.6.2}%
 \contentsline {section}{\numberline {7}Results}{35}{section.7}%
-\contentsline {section}{\numberline {8}Discussion}{36}{section.8}%
-\contentsline {section}{\numberline {9}Conclusion}{36}{section.9}%
-\contentsline {section}{References}{36}{section.9}%
-\contentsline {section}{\numberline {10}Appendix}{38}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Appendix A}{38}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Appendix B}{38}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Appendix C}{38}{subsection.10.3}%
+\contentsline {section}{\numberline {8}Discussion}{38}{section.8}%
+\contentsline {section}{\numberline {9}Conclusion}{38}{section.9}%
+\contentsline {section}{References}{38}{section.9}%
+\contentsline {section}{\numberline {10}Appendix}{40}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Appendix A}{40}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Appendix B}{40}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Appendix C}{40}{subsection.10.3}%

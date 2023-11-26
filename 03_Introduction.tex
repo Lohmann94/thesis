@@ -102,7 +102,9 @@ The goal of this project has been to implement the model architecture from scrat
 \textit{PyTorch} library. This with the intention of achieving a more detailed understanding of the modelling task, uncertainty in modelling,
 and the model structure itself. This specifically means implementing the MPNN architecture\cite{PAINN}, and the ensembling procedure from
 scratch. Another aim of the project, is to implement the model architecture, and produce viable results for the purpose of answering the
-above question, not producing state of the art results, viable for comparison with other benchmarks. 
+above question, not producing state of the art results, viable for comparison with other benchmarks.
+The comparison between the two ensembles will be based be founded in the metrics mentioned prior, but without the statistical rigor and testing, that 
+are some times relevant for these studies. The comparison will be done in a more qualitative manner.
 The project is limited in terms of providing a measure for both epistemic and aleatoric uncertainty. Since the individual models in the ensembles
 only predict a single value, trying to minimize the MSE-loss function, and not an output mean and variance like done in Busk2021\cite{Busk2021}, and
 proposed in \cite{Lakshminarayanan2016}, aleatoric uncertainty can not be estimated. The distinquishing between the two types of uncertainty,

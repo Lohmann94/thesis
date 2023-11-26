@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.6)  26 NOV 2023 01:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.6)  26 NOV 2023 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1062,7 +1062,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--93
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--115
+Underfull \hbox (badness 10000) in paragraph at lines 101--117
 
  []
 
@@ -1169,23 +1169,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
-[33 <./Images/Data/distances.png>] [34]) (08_Results.tex [35]) (09_Discussion.tex) (10_Conclusion.tex) (00_Main.bbl [36]) [37] (12_Appendix.tex) [38] (00_Main.aux)
+[33 <./Images/Data/distances.png>] [34]) (08_Results.tex
+<Images/Results/Training_loss_128.png, id=437, 433.62pt x 722.7pt>
+File: Images/Results/Training_loss_128.png Graphic file (type png)
+<use Images/Results/Training_loss_128.png>
+Package pdftex.def Info: Images/Results/Training_loss_128.png  used on input line 62.
+(pdftex.def)             Requested size: 216.24025pt x 360.40074pt.
+<Images/Results/Training_loss_64.png, id=438, 433.62pt x 722.7pt>
+File: Images/Results/Training_loss_64.png Graphic file (type png)
+<use Images/Results/Training_loss_64.png>
+Package pdftex.def Info: Images/Results/Training_loss_64.png  used on input line 68.
+(pdftex.def)             Requested size: 216.24025pt x 360.40074pt.
+ [35]
+<Images/Results/Validation_loss_128.png, id=445, 433.62pt x 722.7pt>
+File: Images/Results/Validation_loss_128.png Graphic file (type png)
+<use Images/Results/Validation_loss_128.png>
+Package pdftex.def Info: Images/Results/Validation_loss_128.png  used on input line 79.
+(pdftex.def)             Requested size: 216.24025pt x 360.40074pt.
+<Images/Results/Validation_loss_64.png, id=446, 433.62pt x 722.7pt>
+File: Images/Results/Validation_loss_64.png Graphic file (type png)
+<use Images/Results/Validation_loss_64.png>
+Package pdftex.def Info: Images/Results/Validation_loss_64.png  used on input line 85.
+(pdftex.def)             Requested size: 216.24025pt x 360.40074pt.
+ [36 <./Images/Results/Training_loss_128.png> <./Images/Results/Training_loss_64.png>] [37 <./Images/Results/Validation_loss_128.png> <./Images/Results/Validation_loss_64.png>]) (09_Discussion.tex) (10_Conclusion.tex) (00_Main.bbl [38]) [39] (12_Appendix.tex) [40] (00_Main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29811 strings out of 475281
- 551782 string characters out of 2774065
- 1009366 words of memory out of 3000000
- 50529 multiletter control sequences out of 15000+600000
- 531886 words of font info for 92 fonts, out of 8000000 for 9000
+ 29866 strings out of 475281
+ 553314 string characters out of 2774065
+ 1009367 words of memory out of 3000000
+ 50573 multiletter control sequences out of 15000+600000
+ 534883 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,17n,80p,605b,628s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 79i,17n,80p,605b,661s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\lohma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk>{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}<C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvbi.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 00_Main.pdf (38 pages, 705278 bytes).
+Output written on 00_Main.pdf (40 pages, 1058286 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
- 330 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 727 PDF objects out of 1000 (max. 8388607)
+ 148 named destinations out of 1000 (max. 500000)
+ 350 words of extra memory for PDF output out of 10000 (max. 10000000)
 
