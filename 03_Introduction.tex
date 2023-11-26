@@ -91,19 +91,6 @@ between the predictions of the ensembles and the actual target values,
 and epistemic uncertainty founded in the variance in the predictions of the ensembles inspired by\cite{Lakshminarayanan2016},
 and \cite{Tran2019}. The Expected Normalized Calibration Error (ENCE), will also be calculated as a supplementary measure.\\
 
-The goal of this project has been to implement the model architecture from scratch, utilizing tools and packages from the
-\textit{PyTorch} library. This with the intention of achieving a more detailed understanding of the modelling task, uncertainty in modelling,
-and the model structure itself. This specifically means implementing the MPNN architecture\cite{PAINN}, and the ensembling procedure from
-scratch. The project is limited in terms of providing a measure for both epistemic and aleatoric uncertainty. Since the individual models in the ensembles
-only predict a single value, trying to minimize the MSE-loss function, and not an output mean and variance like done in Busk2021\cite{Busk2021}, and
-proposed in \cite{Lakshminarayanan2016}, aleatoric uncertainty can not be estimated. The distinquishing between the two types of uncertainty,
-while being the state of the art for evaluating uncertainty in modelling tasks, is not attainable due to the scope of the project.
-The choice of estimating uncertainty via the variance and mean over ensemble predictions, are viable options performed in Tran\cite{Tran2019},
-and proposed by Scalia\cite{Scalia2019}, but critiqued for its lack of capabilities in Lakshminarayanan\cite{Lakshminarayanan2016}.
-The sole data set in scope of this project is the C-c catalyst dataset\cite{Meyer2018}. The choice came down to the accesability of the data set,
-being limited to 7.053 molecules, with easy to comprehend data structures. This choice supported the desire to emphasize understanding the 
-modelling task and uncertainty in modelling. \\
-
 Specifically, this paper asks:
 
 \begin{center}
@@ -111,8 +98,20 @@ Specifically, this paper asks:
       Message Passing Neural Networks}}
 \end{center}
 
-%#TODO beskriv hvorfor jeg har scopet projektet lige præcis som jeg har, hvorfor denne model, dette datasæt, hvorfor kun en bestemt type usikkerhed
-%#TODO underbyg argumenter med enten at det er eksperimentelt vist, eller at det er SOTA
+The goal of this project has been to implement the model architecture from scratch, utilizing tools and packages from the
+\textit{PyTorch} library. This with the intention of achieving a more detailed understanding of the modelling task, uncertainty in modelling,
+and the model structure itself. This specifically means implementing the MPNN architecture\cite{PAINN}, and the ensembling procedure from
+scratch. Another aim of the project, is to implement the model architecture, and produce viable results for the purpose of answering the
+above question, not producing state of the art results, viable for comparison with other benchmarks. 
+The project is limited in terms of providing a measure for both epistemic and aleatoric uncertainty. Since the individual models in the ensembles
+only predict a single value, trying to minimize the MSE-loss function, and not an output mean and variance like done in Busk2021\cite{Busk2021}, and
+proposed in \cite{Lakshminarayanan2016}, aleatoric uncertainty can not be estimated. The distinquishing between the two types of uncertainty,
+while being the state of the art for evaluating uncertainty in modelling tasks, is not attainable due to the scope of the project.
+The choice of estimating uncertainty via the variance and mean over ensemble predictions, are viable options performed in Tran\cite{Tran2019},
+and proposed by Scalia\cite{Scalia2019}, but critiqued for its lack of capabilities in Lakshminarayanan\cite{Lakshminarayanan2016}.
+The sole data set in scope of this project is the C-c catalyst dataset\cite{Meyer2018}. The choice came down to the accesability of the data set,
+being limited to 7.053 molecules, with easy to comprehend data structures. This choice supported the desire to emphasize understanding the
+modelling task and uncertainty in modelling. \\
 
 The following sections of this paper, namely[\ref{sec:intro},\ref{sec:theory}],
 we will go through relevant concepts and theories, necessary for assessing the results and methods in this paper.

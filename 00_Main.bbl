@@ -147,6 +147,12 @@ K.~Schütt, P.-J. Kindermans, H.~E.~S. Felix, S.~Chmiela, A.~Tkatchenko, and
   \url{www.quantum-machine.org.}
 \BIBentrySTDinterwordspacing
 
+\bibitem{hyperopt}
+\BIBentryALTinterwordspacing
+``Hyperopt documentation.'' [Online]. Available:
+  \url{https://hyperopt.github.io/hyperopt/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{hpc}
 \BIBentryALTinterwordspacing
 ``Using gpus under lsf10.'' [Online]. Available:

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.6)  25 NOV 2023 01:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.6)  26 NOV 2023 01:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -863,14 +863,7 @@ File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count376
 \l__pdf_internal_box=\box126
-) (00_Main.aux
-
-LaTeX Warning: Label `eq:rbf' multiply defined.
-
-
-LaTeX Warning: Label `eq:coscutoffproject' multiply defined.
-
-)
+) (00_Main.aux)
 \openout1 = `00_Main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
@@ -1008,7 +1001,7 @@ Package pdftex.def Info: Images/DTU_Logo_Hvid.jpg  used on input line 36.
 \tf@toc=\write4
 \openout4 = `00_Main.toc'.
 
- [3] (11_Acknowledgements.tex
+ [3] [4] (11_Acknowledgements.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
@@ -1033,7 +1026,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-[4]) (03_Introduction.tex
+[5]) (03_Introduction.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
  []
@@ -1048,7 +1041,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--37
 
  []
 
-[5]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 38--45
 
  []
@@ -1058,7 +1051,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--70
 
  []
 
-[6]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 71--83
 
  []
@@ -1069,49 +1062,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--93
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--106
+Underfull \hbox (badness 10000) in paragraph at lines 101--115
 
  []
 
-[7] [8]) (05_Theory.tex [9] [10]
-LaTeX Font Info:    Trying to load font information for TS1+qhv on input line 139.
+[8] [9]) (05_Theory.tex
+LaTeX Font Info:    Trying to load font information for TS1+qhv on input line 33.
  (C:\Users\lohma\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qhv.fd
 File: ts1qhv.fd 2009/09/25 v1.2 font definition file for TS1/qhv
 )
-<Images/Method/message_block.png, id=214, 420.48pt x 440.19pt>
+
+LaTeX Warning: Reference `PAINN' on page 10 undefined on input line 46.
+
+[10] [11] [12]
+<Images/Method/message_block.png, id=242, 420.48pt x 440.19pt>
 File: Images/Method/message_block.png Graphic file (type png)
 <use Images/Method/message_block.png>
-Package pdftex.def Info: Images/Method/message_block.png  used on input line 151.
+Package pdftex.def Info: Images/Method/message_block.png  used on input line 200.
 (pdftex.def)             Requested size: 250.0pt x 261.72487pt.
- [11 <./Images/Method/message_block.png>] [12]
-File: Images/Method/message_block.png Graphic file (type png)
-<use Images/Method/message_block.png>
-Package pdftex.def Info: Images/Method/message_block.png  used on input line 287.
-(pdftex.def)             Requested size: 250.0pt x 261.72487pt.
- [13]
-<Images/Method/update_block.png, id=271, 288.642pt x 440.19pt>
+ [13 <./Images/Method/message_block.png>]
+<Images/Method/update_block.png, id=259, 288.642pt x 440.19pt>
 File: Images/Method/update_block.png Graphic file (type png)
 <use Images/Method/update_block.png>
-Package pdftex.def Info: Images/Method/update_block.png  used on input line 307.
-(pdftex.def)             Requested size: 250.0pt x 381.25615pt.
- [14]
-<Images/Method/MPNN_arc.png, id=281, 250.536pt x 527.571pt>
+Package pdftex.def Info: Images/Method/update_block.png  used on input line 248.
+(pdftex.def)             Requested size: 200.0pt x 305.0076pt.
+ [14] [15 <./Images/Method/update_block.png>]
+<Images/Method/MPNN_arc.png, id=284, 250.536pt x 527.571pt>
 File: Images/Method/MPNN_arc.png Graphic file (type png)
 <use Images/Method/MPNN_arc.png>
-Package pdftex.def Info: Images/Method/MPNN_arc.png  used on input line 324.
-(pdftex.def)             Requested size: 200.0pt x 421.15576pt.
- [15 <./Images/Method/update_block.png>] [16 <./Images/Method/MPNN_arc.png>]) (06_Methods.tex [17]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 108.
- [18] [19] [20] [21]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 245.
+Package pdftex.def Info: Images/Method/MPNN_arc.png  used on input line 305.
+(pdftex.def)             Requested size: 150.0pt x 315.86884pt.
+ [16 <./Images/Method/MPNN_arc.png>] [17] [18] [19]) (06_Methods.tex [20]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 110.
+ [21] [22] [23] [24] [25]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 325.
  (C:\Users\lohma\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 268.
-
-[22]) (07_Data.tex
+) [26] [27]) (07_Data.tex
 Underfull \hbox (badness 10000) in paragraph at lines 7--12
 
  []
@@ -1126,43 +1113,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
-<Images/Data/num_nodes_dataset.png, id=339, 462.528pt x 346.896pt>
+<Images/Data/num_nodes_dataset.png, id=388, 462.528pt x 346.896pt>
 File: Images/Data/num_nodes_dataset.png Graphic file (type png)
 <use Images/Data/num_nodes_dataset.png>
 Package pdftex.def Info: Images/Data/num_nodes_dataset.png  used on input line 24.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
-[23] [24 <./Images/Data/num_nodes_dataset.png>]
-<Images/Data/pareto_atom_distribution.png, id=351, 462.528pt x 346.896pt>
+[28] [29 <./Images/Data/num_nodes_dataset.png>]
+<Images/Data/pareto_atom_distribution.png, id=400, 462.528pt x 346.896pt>
 File: Images/Data/pareto_atom_distribution.png Graphic file (type png)
 <use Images/Data/pareto_atom_distribution.png>
 Package pdftex.def Info: Images/Data/pareto_atom_distribution.png  used on input line 52.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
-<Images/Data/addition_distribution.png, id=353, 462.528pt x 346.896pt>
+<Images/Data/addition_distribution.png, id=402, 462.528pt x 346.896pt>
 File: Images/Data/addition_distribution.png Graphic file (type png)
 <use Images/Data/addition_distribution.png>
 Package pdftex.def Info: Images/Data/addition_distribution.png  used on input line 72.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
- [25 <./Images/Data/pareto_atom_distribution.png>]
+ [30 <./Images/Data/pareto_atom_distribution.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
-<Images/Data/binding_energies.png, id=363, 462.528pt x 444.4605pt>
+<Images/Data/binding_energies.png, id=411, 462.528pt x 444.4605pt>
 File: Images/Data/binding_energies.png Graphic file (type png)
 <use Images/Data/binding_energies.png>
 Package pdftex.def Info: Images/Data/binding_energies.png  used on input line 85.
 (pdftex.def)             Requested size: 455.24411pt x 437.48082pt.
-[26 <./Images/Data/addition_distribution.png>]
+[31 <./Images/Data/addition_distribution.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 88--94
 
  []
 
-<Images/Data/distances.png, id=371, 462.528pt x 346.896pt>
+<Images/Data/distances.png, id=420, 462.528pt x 346.896pt>
 File: Images/Data/distances.png Graphic file (type png)
 <use Images/Data/distances.png>
 Package pdftex.def Info: Images/Data/distances.png  used on input line 98.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
-[27 <./Images/Data/binding_energies.png>]
+[32 <./Images/Data/binding_energies.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 101--104
 
  []
@@ -1182,23 +1169,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
-[28 <./Images/Data/distances.png>] [29]) (08_Results.tex [30]) (09_Discussion.tex) (10_Conclusion.tex) (00_Main.bbl [31]) [32] (12_Appendix.tex) [33] (00_Main.aux)
+[33 <./Images/Data/distances.png>] [34]) (08_Results.tex [35]) (09_Discussion.tex) (10_Conclusion.tex) (00_Main.bbl [36]) [37] (12_Appendix.tex) [38] (00_Main.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29764 strings out of 475281
- 551170 string characters out of 2774065
- 1007366 words of memory out of 3000000
- 50507 multiletter control sequences out of 15000+600000
- 530779 words of font info for 91 fonts, out of 8000000 for 9000
+ 29811 strings out of 475281
+ 551782 string characters out of 2774065
+ 1009366 words of memory out of 3000000
+ 50529 multiletter control sequences out of 15000+600000
+ 531886 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,17n,80p,529b,628s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\lohma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk>{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}<C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvbi.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 00_Main.pdf (33 pages, 665792 bytes).
+ 79i,17n,80p,605b,628s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\lohma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk>{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}<C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvbi.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/lohma/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on 00_Main.pdf (38 pages, 705278 bytes).
 PDF statistics:
- 627 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
- 282 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 705 PDF objects out of 1000 (max. 8388607)
+ 142 named destinations out of 1000 (max. 500000)
+ 330 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -61,6 +61,8 @@ of the edges, being an input variable in the message block.
 
 \subsection{Training- and Validation-loop}\label{subsec:training}
 
+%#TODO beskriv Adam optimzer: Yes, the Adam optimizer is actually an extension of the stochastic gradient descent (SGD) optimization algorithm. While traditional SGD uses a fixed learning rate for all model parameters, Adam incorporates adaptive learning rates for each parameter individually. This adaptive learning rate is based on the first and second moments of the gradients. In this way, Adam combines the benefits of both adaptive learning rate methods and the stochastic gradient descent algorithm.
+
 \begin{algorithm}[H]
     \begin{algorithmic}[1]
         \State Initialize size of ensemble: $T$
@@ -144,7 +146,112 @@ relevant to the more sophisticated ensemble models (titled MPNN128). The table b
 details shared and non-shared model hyperparameters, as well
 as highlighting the parameters, which are consistent with the PAINN architecture described in \cite{PAINN} with a star (*).
 
+\begin{table}[H]
+    \centering
+    \caption{Modelling hyperparameters}
+    \label{tab:hyperparameters}
+    \begin{tabular}{|lcll|}
+        \hline
+        \multicolumn{1}{|l|}{\textbf{Model Hyperparameters}}                 & \multicolumn{1}{l|}{\textit{\textbf{MPNN64}}} & \multicolumn{1}{l|}{\textit{\textbf{MPNN128}}} & \textit{\textbf{Unit}} \\ \hline
+        \multicolumn{4}{|c|}{\textbf{Shared}}                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Number of physical dimensions*}}        & \multicolumn{2}{c|}{3}                        & Dimensions                                                              \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Number of Message Passing Rounds*}}     & \multicolumn{2}{c|}{5}                        & Rounds                                                                  \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Patience*}}                             & \multicolumn{2}{c|}{5}                        & Validation steps                                                        \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Weight Decay*}}                         & \multicolumn{2}{c|}{0.01}                     & N/A                                                                     \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Learning Rate Decay*}}                  & \multicolumn{2}{c|}{0.5}                      & N/A                                                                     \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Exponential Smoothing for Validation*}} & \multicolumn{2}{c|}{0.9}                      & N/A                                                                     \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Radial Basis Parameter*}}               & \multicolumn{2}{c|}{20}                       & N/A                                                                     \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Learning Rate}}                         & \multicolumn{2}{c|}{0.004}                    & N/A                                                                     \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Cutoff Distance}}                       & \multicolumn{2}{c|}{3.2}                      & Ångstrøm                                                                \\ \hline
+        \multicolumn{1}{|l|}{\textbf{Early stopping patience}}               & \multicolumn{2}{c|}{20}                       & Ångstrøm                                                                \\ \hline
+        \multicolumn{4}{|c|}{\textbf{Not shared}}                                                                                                                                                      \\ \hline
+        \multicolumn{1}{|l|}{\textbf{State dimension size}}                  & \multicolumn{1}{c|}{64}                       & \multicolumn{1}{c|}{128}                       & Dimensions             \\ \hline
+    \end{tabular}
+\end{table}
+%#TODO Indsæt link til appendix som forklarer de forskellige hyperparametre, og lav appendix med retfærdiggørelse for hvorfor og hvordan parametre er valgt
+
+A brief explanation of the individual hyperparameters influence on the model can be found in appendix section\ref{subsec:appendixA}.
+The remaining hyperparameters not chosen based on other experimental settings in related research, were run through an optimization shcheme.
+The scheme, and its results can be found in the section below.
+
 \subsubsection{Hyperparameter selection}\label{subsubsec:selec:hyperparam}
+
+Out of all hyperparameters for the MPNN, only three of them were not described in the paper\cite{PAINN}. The three hyperparameters being
+
+\begin{itemize}
+    \item Learning rate
+    \item Cutoff
+    \item Early stopping patience
+\end{itemize}
+
+Out of these three, two of them, learning rate and cutoff, were deemed critical to experiment integrity, and were therefore chosen
+to go into hyperoptimization trials. The
+last one, early stopping patience, was chosen based on initial unrecorded experiments in the cloud environment.
+The exclusion of early stopping patience from the
+optimization scheme, came down to the difficulty measuring its both positive and negative impact on modelling. Early stopping is implemented both to prevent
+overfitting to training data, and to create diversity within the ensemble of individual models. Estimating both metrics, was deemed too cumbersome,
+and therefore excluded, from the optimization scheme.
+So the learning rate and cutoff were chosen to go into trials. The learning rate,
+dictates how aggressive the optimization scheme, in the MPNN can be. A higher learning rate meaning more radical changes in model parameters,
+in response to gradients. Lower meaning less aggresive changes per step. The Cutoff, a locality variable, dictates the amount of neigbours being included in the
+message block of the MPNN. The higher the cutoff, the more neighbours will be included in the message block, and thus more information in the model.
+The lower, the more neighbours will be excluded. A total of two rounds of hyperparameter optimization was run. The first had a broader search space,
+the latter having a narrower search space. Both sets of trials were run with the \textit{python} library \textit{Hyperopt}\cite{hyperopt}.
+The results of the initial trials can be found in the bottom of the below table\ref{tab:first-hyper}.
+
+\begin{table}[H]
+    \centering
+    \caption{1. round hyperparameter optimization}
+    \label{tab:first-hyper}
+    \begin{tabular}{|ccc|}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Optimization Scheme}}  & \multicolumn{1}{c|}{\textit{\textbf{Value}}} & \textit{\textbf{Unit}} \\ \hline
+        \multicolumn{3}{|c|}{\textbf{Variables}}                                                                                    \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Learning Rate}}        & \multicolumn{1}{c|}{{[}0.0001;0.01{]}}       & N/A                    \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Cutoff}}               & \multicolumn{1}{c|}{{[}2.0;5.0{]}}           & Angstrom               \\ \hline
+        \multicolumn{3}{|c|}{\textbf{Parameters}}                                                                                   \\ \hline
+        \multicolumn{1}{|c|}{Maximum number of trials}      & \multicolumn{1}{c|}{20}                      & trials                 \\ \hline
+        \multicolumn{1}{|c|}{Number of graphs trained on}   & \multicolumn{1}{c|}{10}                      & graphs                 \\ \hline
+        \multicolumn{1}{|c|}{Number of graphs validated on} & \multicolumn{1}{c|}{5}                       & graphs                 \\ \hline
+        \multicolumn{1}{|c|}{Epochs per trial}              & \multicolumn{1}{c|}{5}                       & epochs                 \\ \hline
+        \multicolumn{3}{|c|}{\textbf{Results}}                                                                                      \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Learning Rate}}        & \multicolumn{1}{c|}{\textbf{0.0032}}         & \textbf{N/A}           \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Cutoff}}               & \multicolumn{1}{c|}{\textbf{2.72}}           & \textbf{Angstrom}      \\ \hline
+    \end{tabular}
+\end{table}
+
+Another set of trials were run, with a narrower search space, and more epochs for the models to hopefully converge to a higher degree.
+The results of the trials can be found in the table below \ref{tab:second-hyper}.
+
+\begin{table}[H]
+    \centering
+    \caption{2. round hyperparameter optimization}
+    \label{tab:second-hyper}
+    \begin{tabular}{|ccc|}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Optimization Scheme}}  & \multicolumn{1}{c|}{\textit{\textbf{Value}}} & \textit{\textbf{Unit}} \\ \hline
+        \multicolumn{3}{|c|}{\textbf{Variables}}                                                                                    \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Learning Rate*}}       & \multicolumn{1}{c|}{{[}0.0005;0.005{]}}      & N/A                    \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Cutoff*}}              & \multicolumn{1}{c|}{{[}2.5;3.5{]}}           & Angstrom               \\ \hline
+        \multicolumn{3}{|c|}{\textbf{Parameters}}                                                                                   \\ \hline
+        \multicolumn{1}{|c|}{Maximum number of trials}      & \multicolumn{1}{c|}{20}                      & trials                 \\ \hline
+        \multicolumn{1}{|c|}{Number of graphs trained on}   & \multicolumn{1}{c|}{10}                      & graphs                 \\ \hline
+        \multicolumn{1}{|c|}{Number of graphs validated on} & \multicolumn{1}{c|}{5}                       & graphs                 \\ \hline
+        \multicolumn{1}{|c|}{Epochs per trial*}             & \multicolumn{1}{c|}{10}                      & epochs                 \\ \hline
+        \multicolumn{3}{|c|}{\textbf{Results}}                                                                                      \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Learning Rate}}        & \multicolumn{1}{c|}{\textbf{0.004}}          & \textbf{N/A}           \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Cutoff}}               & \multicolumn{1}{c|}{\textbf{3.19}}           & \textbf{Angstrom}      \\ \hline
+    \end{tabular}
+\end{table}
+
+The results indicate a cutoff  at 3.19 Angstrom, and a learning rate of 0.004. These hyperparameters were selected for the final run of training
+both ensembles.
+
+%#TODO skriv om optimerings algoritmen, og hvad hvilken metric den opererede på: mena validation error over batches
+
+
+
+
 
 %experiment: space = {
 %    'r_cut': hp.uniform('r_cut', 2.0, 5),
@@ -173,33 +280,6 @@ as highlighting the parameters, which are consistent with the PAINN architecture
 %epochs = 10
 %result lr 0.0042844462218639585, 'r_cut': 3.1928438594107265}
 
-
-\begin{table}[H]
-    \centering
-    \caption{Modelling hyperparameters}
-    \label{tab:hyperparameters}
-    \begin{tabular}{|lcll|}
-        \hline
-        \multicolumn{1}{|l|}{\textbf{Model Hyperparameters}}                 & \multicolumn{1}{l|}{\textit{\textbf{MPNN64}}} & \multicolumn{1}{l|}{\textit{\textbf{MPNN128}}} & \textit{\textbf{Unit}} \\ \hline
-        \multicolumn{4}{|c|}{\textbf{Shared}}                                                                                                                                                          \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Number of physical dimensions*}}        & \multicolumn{2}{c|}{3}                        & Dimensions                                                              \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Number of Message Passing Rounds*}}     & \multicolumn{2}{c|}{5}                        & Rounds                                                                  \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Patience*}}                             & \multicolumn{2}{c|}{5}                        & Validation steps                                                        \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Weight Decay*}}                         & \multicolumn{2}{c|}{0.01}                     & N/A                                                                     \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Learning Rate Decay*}}                  & \multicolumn{2}{c|}{0.5}                      & N/A                                                                     \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Exponential Smoothing for Validation*}} & \multicolumn{2}{c|}{0.9}                      & N/A                                                                     \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Radial Basis Parameter*}}               & \multicolumn{2}{c|}{20}                       & N/A                                                                     \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Learning Rate}}                         & \multicolumn{2}{c|}{0.001}                    & N/A                                                                     \\ \hline
-        \multicolumn{1}{|l|}{\textbf{Cutoff Distance}}                       & \multicolumn{2}{c|}{4}                        & Ångstrøm                                                                \\ \hline
-        \multicolumn{4}{|c|}{\textbf{Not shared}}                                                                                                                                                      \\ \hline
-        \multicolumn{1}{|l|}{\textbf{State dimension size}}                  & \multicolumn{1}{c|}{64}                       & \multicolumn{1}{c|}{128}                       & Dimensions             \\ \hline
-    \end{tabular}
-\end{table}
-%#TODO Indsæt link til appendix som forklarer de forskellige hyperparametre, og lav appendix med retfærdiggørelse for hvorfor og hvordan parametre er valgt
-
-An explanation of the individual hyperparameters influence on the model, and a justification for selection of the above values, can be
-be found in the appendix section\ref{subsec:appendixA}.
-
 \subsection{Experimental Hyperparameters}\label{subsec:experiement}
 
 The experimental hyperparameters defining the implementation of the above model setting, can be found in
@@ -212,15 +292,15 @@ table below\ref{tab:experiment}.
     \begin{tabular}{|l|c|c|}
         \hline
         \textbf{Experimental Hyperparameters}                          & \multicolumn{1}{l|}{\textit{\textbf{Value}}} & \textit{\textbf{Unit}} \\ \hline
-        \multicolumn{1}{|c|}{\textbf{Number of molecules in Data Set}} & 695                                          & Molecules              \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Number of molecules in Data Set}} & 7.053                                        & Molecules              \\ \hline
         \textbf{Training Split}                                        & 0.8                                          & N/A                    \\ \hline
         \textbf{Validation Split}                                      & 0.1                                          & N/A                    \\ \hline
         \textbf{Test Split}                                            & 0.1                                          & N/A                    \\ \hline
         \textbf{Ensemble Size}                                         & 5                                            & Models                 \\ \hline
-        \textbf{Initial number of Epochs}                              & 200                                          & Epochs                 \\ \hline
+        \textbf{Initial number of Epochs}                              & 100                                          & Epochs                 \\ \hline
         \textbf{Validation Index}                                      & 5                                            & Epochs                 \\ \hline
         \textbf{Model Saving Interval}                                 & 0.01                                         & N/A                    \\ \hline
-        \textbf{Batch Size}                                            & 5                                            & Molecules              \\ \hline
+        \textbf{Batch Size}                                            & 20                                           & Molecules              \\ \hline
     \end{tabular}
 \end{table}
 
@@ -265,7 +345,7 @@ which can be found for individual models:
 The cloud-job configuration variables for reproducing with the described performance,
 can be found in the below table\ref{tab:cloud-job-param}:
 
-\begin{table}[]
+\begin{table}[H]
     \centering
     \caption{Cloud Job Parameters}
     \label{tab:cloud-job-param}
