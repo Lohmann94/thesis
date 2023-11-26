@@ -1,28 +1,28 @@
 # Fdb version 4
-["bibtex 00_Main"] 1700959410 "00_Main.aux" "00_Main.bbl" "00_Main" 1700959508 0
+["bibtex 00_Main"] 1700959863 "00_Main.aux" "00_Main.bbl" "00_Main" 1700959868 0
   "./references_manually.bib" 1700927399 36744 0ebf2c30c0c4b2c1ec535ba504749b88 ""
-  "00_Main.aux" 1700959507 23058 1da6693c840275a76c4ec847dfe48853 "pdflatex"
+  "00_Main.aux" 1700959867 23058 b4810d96cb6a9911c4e2bda4c2357370 "pdflatex"
   "C:/Users/lohma/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   (generated)
   "00_Main.bbl"
   "00_Main.blg"
   (rewritten before read)
-["pdflatex"] 1700959504 "c:/Users/lohma/OneDrive/Skrivebord/Bachelorprojekt/rapport/00_Main.tex" "00_Main.pdf" "00_Main" 1700959508 0
-  "00_Main.aux" 1700959507 23058 1da6693c840275a76c4ec847dfe48853 "pdflatex"
-  "00_Main.bbl" 1700959410 6888 2651868594b326955821564d0670b62d "bibtex 00_Main"
+["pdflatex"] 1700959863 "c:/Users/lohma/OneDrive/Skrivebord/Bachelorprojekt/rapport/00_Main.tex" "00_Main.pdf" "00_Main" 1700959868 0
+  "00_Main.aux" 1700959867 23058 b4810d96cb6a9911c4e2bda4c2357370 "pdflatex"
+  "00_Main.bbl" 1700959863 6888 2651868594b326955821564d0670b62d "bibtex 00_Main"
   "00_Main.tex" 1700857502 2789 471cb98f324e553737d310602378391f ""
-  "00_Main.toc" 1700959507 2797 fdc686dbf58d79b7e76ed975456ce7ee "pdflatex"
+  "00_Main.toc" 1700959867 2797 fdc686dbf58d79b7e76ed975456ce7ee "pdflatex"
   "01_Frontpage.tex" 1700408119 735 fb31fb980dc41ba2d2846c0faecaab9c ""
   "02_Abstract.tex" 1700754378 53 644c65839de7242b3ec53ddfd81efa40 ""
   "03_Introduction.tex" 1700899799 11805 96777730b19cb3d60fb1f930b694644c ""
-  "05_Theory.tex" 1700959503 29207 de3105f83ea5710f2462a0a593d24666 ""
-  "06_Methods.tex" 1700953181 24132 5fd9b7d7ed923193ea438d0754850286 ""
-  "07_Data.tex" 1700488516 7420 ba8a6594471f9affcdd4b608000c908f ""
-  "08_Results.tex" 1700959111 108 54dc0f5c79b30aa3d4f14de81bc56a84 ""
+  "05_Theory.tex" 1700959615 29130 389bb655f439428f0ce8cf59c7269135 ""
+  "06_Methods.tex" 1700959807 24098 a1f0ced7f03cedfbef0de76e1c6a5aea ""
+  "07_Data.tex" 1700959829 7345 9626fb0a866c99a83982fbfe26237b28 ""
+  "08_Results.tex" 1700959667 195 daf3df44873e2fb2b57794db7406d700 ""
   "09_Discussion.tex" 1700943604 309 3c7351a466eabc899abff958eb04e13e ""
   "10_Conclusion.tex" 1700943745 259 aaaad7e92ce8c0234c4ce655a8895e3a ""
   "11_Acknowledgements.tex" 1700857603 932 653349ebcafb3d8dccfe3e4bedffaeca ""
-  "12_Appendix.tex" 1700486784 956 5ab652b6c8640187e62b3f1424a1f2d2 ""
+  "12_Appendix.tex" 1700959858 884 8b0d8898d48ac9a9b9c7f581232dc035 ""
   "C:/Users/lohma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1700492291 123019 4e6d54fe28a67ad1b512b0cc9d03c2e8 ""
   "C:/Users/lohma/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1700409600 21972 1d03a8a84a4c3b7198309a26b693e426 ""
   "C:/Users/lohma/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1700410947 688 37338d6ab346c2f1466b29e195316aa4 ""

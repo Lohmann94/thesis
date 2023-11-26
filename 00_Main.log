@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.6)  26 NOV 2023 01:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.12.6)  26 NOV 2023 01:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1095,77 +1095,77 @@ Package pdftex.def Info: Images/Method/MPNN_arc.png  used on input line 305.
  [16 <./Images/Method/MPNN_arc.png>] [17] [18] [19]) (06_Methods.tex [20]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 110.
  [21] [22] [23] [24] [25]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 325.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 324.
  (C:\Users\lohma\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 ) [26] [27]) (07_Data.tex
-Underfull \hbox (badness 10000) in paragraph at lines 7--12
+Underfull \hbox (badness 10000) in paragraph at lines 5--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--17
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--20
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
 <Images/Data/num_nodes_dataset.png, id=388, 462.528pt x 346.896pt>
 File: Images/Data/num_nodes_dataset.png Graphic file (type png)
 <use Images/Data/num_nodes_dataset.png>
-Package pdftex.def Info: Images/Data/num_nodes_dataset.png  used on input line 24.
+Package pdftex.def Info: Images/Data/num_nodes_dataset.png  used on input line 22.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
 [28] [29 <./Images/Data/num_nodes_dataset.png>]
 <Images/Data/pareto_atom_distribution.png, id=400, 462.528pt x 346.896pt>
 File: Images/Data/pareto_atom_distribution.png Graphic file (type png)
 <use Images/Data/pareto_atom_distribution.png>
-Package pdftex.def Info: Images/Data/pareto_atom_distribution.png  used on input line 52.
+Package pdftex.def Info: Images/Data/pareto_atom_distribution.png  used on input line 50.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
 <Images/Data/addition_distribution.png, id=402, 462.528pt x 346.896pt>
 File: Images/Data/addition_distribution.png Graphic file (type png)
 <use Images/Data/addition_distribution.png>
-Package pdftex.def Info: Images/Data/addition_distribution.png  used on input line 72.
+Package pdftex.def Info: Images/Data/addition_distribution.png  used on input line 70.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
  [30 <./Images/Data/pareto_atom_distribution.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 <Images/Data/binding_energies.png, id=411, 462.528pt x 444.4605pt>
 File: Images/Data/binding_energies.png Graphic file (type png)
 <use Images/Data/binding_energies.png>
-Package pdftex.def Info: Images/Data/binding_energies.png  used on input line 85.
+Package pdftex.def Info: Images/Data/binding_energies.png  used on input line 83.
 (pdftex.def)             Requested size: 455.24411pt x 437.48082pt.
 [31 <./Images/Data/addition_distribution.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 88--94
+Underfull \hbox (badness 10000) in paragraph at lines 86--92
 
  []
 
 <Images/Data/distances.png, id=420, 462.528pt x 346.896pt>
 File: Images/Data/distances.png Graphic file (type png)
 <use Images/Data/distances.png>
-Package pdftex.def Info: Images/Data/distances.png  used on input line 98.
+Package pdftex.def Info: Images/Data/distances.png  used on input line 96.
 (pdftex.def)             Requested size: 455.24411pt x 341.44843pt.
 [32 <./Images/Data/binding_energies.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--109
+Underfull \hbox (badness 10000) in paragraph at lines 103--107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--115
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
